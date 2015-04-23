@@ -65,7 +65,9 @@ namespace SolutionZ.StandAloneWidget
 
         /// <summary>
         /// Date Created - Audit
+        /// Must not be null
         /// </summary>
+        [Required]
         public DateTime DateCreated { get; set; }
 
         /// <summary>
@@ -105,7 +107,12 @@ namespace SolutionZ.StandAloneWidget
             if (brand == null)
                 throw new ArgumentNullException("brand");
 
-            throw new NotImplementedException();
+            using (var db = new StandAloneWidgetContext())
+            {
+                db.Brands.Attach(brand);
+                db.Entry(brand).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
 
         public static void Delete(Brand brand)
@@ -113,7 +120,12 @@ namespace SolutionZ.StandAloneWidget
             if (brand == null)
                 throw new ArgumentNullException("brand");
 
-            throw new NotImplementedException();
+            using (var db = new StandAloneWidgetContext())
+            {
+                db.Brands.Attach(brand);
+                db.Brands.Remove(brand);
+                db.SaveChanges();
+            }
         }
 
         /// <summary>

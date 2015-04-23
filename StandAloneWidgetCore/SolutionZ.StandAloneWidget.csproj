@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brand.cs" />
+    <Compile Include="Migrations\201504231647544_InitialCreate.cs" />
+    <Compile Include="Migrations\201504231647544_InitialCreate.Designer.cs">
+      <DependentUpon>201504231647544_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,7 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
+    <EmbeddedResource Include="Migrations\201504231647544_InitialCreate.resx">
+      <DependentUpon>201504231647544_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

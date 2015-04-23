@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SolutionZ.StandAloneWidget;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StandAloneWidgetTesting
 {
@@ -25,12 +26,33 @@ namespace StandAloneWidgetTesting
             brand.HotelBrandDefault = "Westinson";
             brand.HotelStarsRateDefault = 4;
             brand.CreatedBy = "USER";
+            brand.DateCreated = DateTime.Now;
 
             //Act
             Brand.Insert(brand);
 
             //Assert
             Assert.IsNotNull(brand.DateCreated);
+        }
+
+        [TestMethod]
+        public void BrandFileUdpate()
+        {
+            //Arrange
+            BrandFileCreate();
+            var brand = Brand.GetBrands(null, null, null, null).First();
+            Guid temp = brand.ID;
+
+            //Act
+            brand.LastUdpatedDate = DateTime.Now;
+            brand.LastUpdatedBy = "USER2";
+
+            Brand.Update(brand);
+            
+            //Assert
+            var udpateBrand = Brand.GetBrands(temp, null, null, null);
+            Assert.IsNotNull(udpateBrand.First().LastUdpatedDate);
+
         }
 
         [TestMethod]
@@ -43,6 +65,22 @@ namespace StandAloneWidgetTesting
 
             //Assert
             Assert.IsTrue(brands.Count > 0);
+
+        }
+
+        [TestMethod]
+        public void BrandFileDelete()
+        {
+            //Arrange
+            BrandFileCreate();
+            var brandList = Brand.GetBrands(null, null, null, null);
+            Guid temp = brandList.First().ID;
+                
+            //Act
+            Brand.Delete(brandList.First());
+
+            //Assert
+            Assert.IsTrue(Brand.GetBrands(temp, null, null, null).Count == 0);
 
         }
     }
