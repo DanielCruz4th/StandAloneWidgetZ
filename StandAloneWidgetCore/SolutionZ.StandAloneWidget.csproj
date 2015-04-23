@@ -50,12 +50,30 @@
   <ItemGroup>
     <Compile Include="BO\BrandFile.cs" />
     <Compile Include="DAO\BrandFileDBContext.cs" />
+    <Compile Include="Migrations\201504231501033_CreateBrandFile.cs" />
+    <Compile Include="Migrations\201504231501033_CreateBrandFile.Designer.cs">
+      <DependentUpon>201504231501033_CreateBrandFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504231533321_BrandFileUpdate.cs" />
+    <Compile Include="Migrations\201504231533321_BrandFileUpdate.Designer.cs">
+      <DependentUpon>201504231533321_BrandFileUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrandFileCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504231501033_CreateBrandFile.resx">
+      <DependentUpon>201504231501033_CreateBrandFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504231533321_BrandFileUpdate.resx">
+      <DependentUpon>201504231533321_BrandFileUpdate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

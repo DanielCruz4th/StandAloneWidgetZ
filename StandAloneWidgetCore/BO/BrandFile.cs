@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace SolutionZ.StandAloneWidget.BO
 {
@@ -14,6 +15,7 @@ namespace SolutionZ.StandAloneWidget.BO
         /// <summary>
         /// BrandFile ID - Guid
         /// </summary>
+        [Key]
         public Guid ID { get; set; }
 
         /// <summary>
@@ -74,7 +76,7 @@ namespace SolutionZ.StandAloneWidget.BO
         /// <summary>
         /// Last Updated Date
         /// </summary>
-        public DateTime LastUdpatedDate { get; set; }
+        public DateTime? LastUdpatedDate { get; set; }
 
         /// <summary>
         /// Last Updated By

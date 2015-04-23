@@ -10,6 +10,14 @@ namespace SolutionZ.StandAloneWidget.DAO
 {
     public partial class StandAloneWidgetContext : DbContext
     {
+
+        public StandAloneWidgetContext()
+            : base("StandAloneWidget")
+        {
+
+        }
+
+
         /// <summary>
         /// BrandFiles DBContext
         /// </summary>
@@ -17,3 +25,4 @@ namespace SolutionZ.StandAloneWidget.DAO
 
     }
 }
+
