@@ -14,7 +14,8 @@ namespace SolutionZ.StandAloneWidget
         public StandAloneWidgetContext()
             : base("StandAloneWidget")
         {
-
+            //LazyLoading config
+            //this.Configuration.LazyLoadingEnabled = false;
         }
 
 
@@ -32,6 +33,11 @@ namespace SolutionZ.StandAloneWidget
         /// Default Values DBContext
         /// </summary>
         public DbSet<DefaultValue> DefaultValues { get; set; }
+
+        /// <summary>
+        /// Cities DBContext
+        /// </summary>
+        public DbSet<City> Cities { get; set; }
 
 
 

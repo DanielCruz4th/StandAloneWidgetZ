@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brand.cs" />
+    <Compile Include="City.cs" />
     <Compile Include="DefaultValue.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="Migrations\201504231647544_InitialCreate.cs" />
@@ -66,6 +67,10 @@
     <Compile Include="Migrations\201504242119544_DefaultChange.cs" />
     <Compile Include="Migrations\201504242119544_DefaultChange.Designer.cs">
       <DependentUpon>201504242119544_DefaultChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504242211119_CityImplementation.cs" />
+    <Compile Include="Migrations\201504242211119_CityImplementation.Designer.cs">
+      <DependentUpon>201504242211119_CityImplementation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
@@ -88,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504242119544_DefaultChange.resx">
       <DependentUpon>201504242119544_DefaultChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504242211119_CityImplementation.resx">
+      <DependentUpon>201504242211119_CityImplementation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
