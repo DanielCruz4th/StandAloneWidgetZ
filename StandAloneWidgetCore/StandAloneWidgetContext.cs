@@ -23,6 +23,13 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<Brand> Brands { get; set; }
 
+        /// <summary>
+        /// Hotels DBContext
+        /// </summary>
+        public DbSet<Hotel> Hotels { get; set; }
+
+
+
     }
 }
 

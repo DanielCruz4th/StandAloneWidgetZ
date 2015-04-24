@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace SolutionZ.StandAloneWidget
@@ -85,6 +83,7 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public string LastUpdatedBy { get; set; }
 
+
         /// <summary>
         /// Creates BrandFile in DB
         /// </summary>
@@ -102,6 +101,10 @@ namespace SolutionZ.StandAloneWidget
             }
         }
 
+        /// <summary>
+        /// Udpate Brand
+        /// </summary>
+        /// <param name="brand">Brand instance</param>
         public static void Update(Brand brand)
         {
             if (brand == null)
@@ -115,6 +118,10 @@ namespace SolutionZ.StandAloneWidget
             }
         }
 
+        /// <summary>
+        /// Delete Brand
+        /// </summary>
+        /// <param name="brand">Brand instance</param>
         public static void Delete(Brand brand)
         {
             if (brand == null)
