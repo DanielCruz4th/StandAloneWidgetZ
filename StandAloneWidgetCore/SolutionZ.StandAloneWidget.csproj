@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brand.cs" />
+    <Compile Include="DefaultValue.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="Migrations\201504231647544_InitialCreate.cs" />
     <Compile Include="Migrations\201504231647544_InitialCreate.Designer.cs">
@@ -57,6 +58,14 @@
     <Compile Include="Migrations\201504241756565_HotelImplementation.cs" />
     <Compile Include="Migrations\201504241756565_HotelImplementation.Designer.cs">
       <DependentUpon>201504241756565_HotelImplementation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504242052493_DefaultValues.cs" />
+    <Compile Include="Migrations\201504242052493_DefaultValues.Designer.cs">
+      <DependentUpon>201504242052493_DefaultValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504242119544_DefaultChange.cs" />
+    <Compile Include="Migrations\201504242119544_DefaultChange.Designer.cs">
+      <DependentUpon>201504242119544_DefaultChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
@@ -73,6 +82,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504241756565_HotelImplementation.resx">
       <DependentUpon>201504241756565_HotelImplementation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504242052493_DefaultValues.resx">
+      <DependentUpon>201504242052493_DefaultValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504242119544_DefaultChange.resx">
+      <DependentUpon>201504242119544_DefaultChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

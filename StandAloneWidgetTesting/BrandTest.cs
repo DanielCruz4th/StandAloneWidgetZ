@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SolutionZ.StandAloneWidget;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace StandAloneWidgetTesting

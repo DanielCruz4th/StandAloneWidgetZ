@@ -28,6 +28,11 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<Hotel> Hotels { get; set; }
 
+        /// <summary>
+        /// Default Values DBContext
+        /// </summary>
+        public DbSet<DefaultValue> DefaultValues { get; set; }
+
 
 
     }
