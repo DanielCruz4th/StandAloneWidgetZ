@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SolutionZ.StandAloneWidget
 {
-    public class City
+    public class Chain
     {
         /// <summary>
         /// ID - Guid
@@ -16,8 +16,6 @@ namespace SolutionZ.StandAloneWidget
         public Guid ID { get; set; }
 
         public string Name { get; set; }
-
-        public string State { get; set; }
 
         /// <summary>
         /// Date Created - Audit
@@ -44,70 +42,70 @@ namespace SolutionZ.StandAloneWidget
 
 
         /// <summary>
-        /// Creates City in DB
+        /// Creates Chain in DB
         /// </summary>
-        /// <param name="city"></param>
+        /// <param name="chain"></param>
         /// <returns></returns>
-        public static void Insert(City city)
+        public static void Insert(Chain chain)
         {
-            if (city == null)
-                throw new ArgumentNullException("city");
+            if (chain == null)
+                throw new ArgumentNullException("chain");
 
             using (var db = new StandAloneWidgetContext())
             {
-                db.Cities.Add(city);
+                db.Chains.Add(chain);
                 db.SaveChanges();
             }
         }
 
         /// <summary>
-        /// Udpate City
+        /// Udpate Chain
         /// </summary>
-        /// <param name="city">City instance</param>
-        public static void Update(City city)
+        /// <param name="chain">Chain instance</param>
+        public static void Update(Chain chain)
         {
-            if (city == null)
-                throw new ArgumentNullException("city");
+            if (chain == null)
+                throw new ArgumentNullException("chain");
 
             using (var db = new StandAloneWidgetContext())
             {
-                db.Cities.Attach(city);
-                db.Entry(city).State = System.Data.Entity.EntityState.Modified;
+                db.Chains.Attach(chain);
+                db.Entry(chain).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
         }
 
         /// <summary>
-        /// Delete City
+        /// Delete Chain
         /// </summary>
-        /// <param name="city">City instance</param>
-        public static void Delete(City city)
+        /// <param name="chain">Chain instance</param>
+        public static void Delete(Chain chain)
         {
-            if (city == null)
-                throw new ArgumentNullException("city");
+            if (chain == null)
+                throw new ArgumentNullException("chain");
 
             using (var db = new StandAloneWidgetContext())
             {
-                db.Cities.Attach(city);
-                db.Cities.Remove(city);
+                db.Chains.Attach(chain);
+                db.Chains.Remove(chain);
                 db.SaveChanges();
             }
         }
 
         /// <summary>
-        /// Get all Cities from DB
+        /// Get all Chains from DB
         /// </summary>
         /// <returns></returns>
-        public static List<City> GetCities(Guid? id)
+        public static List<Chain> GetChains(Guid? id)
         {
-            List<City> list = new List<City>();
+            List<Chain> list = new List<Chain>();
 
             using (var db = new StandAloneWidgetContext())
             {
                 //Get from DB
-                var query = from city in db.Cities
-                            where !id.HasValue || city.ID == id.Value
-                            select city;
+                var query = from chain in db.Chains
+                            where !id.HasValue || chain.ID == id.Value
+                            select chain;
 
                 list.AddRange(query);
             }

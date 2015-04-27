@@ -64,6 +64,7 @@
     <Compile Include="HotelTest.cs" />
     <Compile Include="DefaultValueTest.cs" />
     <Compile Include="CityTest.cs" />
+    <Compile Include="ChainTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StandAloneWidgetCore\SolutionZ.StandAloneWidget.csproj">
