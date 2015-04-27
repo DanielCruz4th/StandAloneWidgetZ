@@ -44,6 +44,11 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<Chain> Chains { get; set; }
 
+        /// <summary>
+        /// Cars DBContext
+        /// </summary>
+        public DbSet<Car> Cars { get; set; }
+
 
 
     }

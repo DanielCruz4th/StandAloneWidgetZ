@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brand.cs" />
+    <Compile Include="Car.cs" />
     <Compile Include="Chain.cs" />
     <Compile Include="City.cs" />
     <Compile Include="DefaultValue.cs" />
@@ -77,6 +78,10 @@
     <Compile Include="Migrations\201504271346005_ChainImplementation.Designer.cs">
       <DependentUpon>201504271346005_ChainImplementation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504271409408_CarImplementation.cs" />
+    <Compile Include="Migrations\201504271409408_CarImplementation.Designer.cs">
+      <DependentUpon>201504271409408_CarImplementation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504271346005_ChainImplementation.resx">
       <DependentUpon>201504271346005_ChainImplementation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271409408_CarImplementation.resx">
+      <DependentUpon>201504271409408_CarImplementation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
