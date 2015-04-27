@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BrandTest.cs" />
     <Compile Include="CarTest.cs" />
+    <Compile Include="AirportTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HotelTest.cs" />
     <Compile Include="DefaultValueTest.cs" />

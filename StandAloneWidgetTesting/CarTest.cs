@@ -23,7 +23,7 @@ namespace StandAloneWidgetTesting
         }
 
         [TestMethod]
-        public void ChainUpdate()
+        public void CarUpdate()
         {
             //Arrange
             CarInsert();
@@ -37,35 +37,35 @@ namespace StandAloneWidgetTesting
             Car.Update(car);
 
             //Assert
-            var updatedChain = Car.GetCars(temp);
-            Assert.IsNotNull(updatedChain.First().LastUdpatedDate);
+            var updatedCar = Car.GetCars(temp);
+            Assert.IsNotNull(updatedCar.First().LastUdpatedDate);
 
 
         }
 
         [TestMethod]
-        public void ChainGetAll()
+        public void CarGetAll()
         {
             CarInsert();
 
             //Arrange
-            var chains = Car.GetCars(null);
+            var cars = Car.GetCars(null);
 
             //Assert
-            Assert.IsTrue(chains.Count > 0);
+            Assert.IsTrue(cars.Count > 0);
 
         }
 
         [TestMethod]
-        public void ChainDelete()
+        public void CarDelete()
         {
             //Arrange
             CarInsert();
-            var chainList = Car.GetCars(null);
-            Guid temp = chainList.First().ID;
+            var carList = Car.GetCars(null);
+            Guid temp = carList.First().ID;
 
             //Act
-            Car.Delete(chainList.First());
+            Car.Delete(carList.First());
 
             //Assert
             Assert.IsTrue(Car.GetCars(temp).Count == 0);
