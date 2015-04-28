@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandAloneWidgetTesting", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionZ.StandAloneWidget", "StandAloneWidgetCore\SolutionZ.StandAloneWidget.csproj", "{04E2C983-E658-432C-A187-8250E853CA4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandAloneWidget", "StandAloneWidget\StandAloneWidget.csproj", "{854AA955-0205-453F-9CE5-2580E99F9066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{04E2C983-E658-432C-A187-8250E853CA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04E2C983-E658-432C-A187-8250E853CA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04E2C983-E658-432C-A187-8250E853CA4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854AA955-0205-453F-9CE5-2580E99F9066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854AA955-0205-453F-9CE5-2580E99F9066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854AA955-0205-453F-9CE5-2580E99F9066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854AA955-0205-453F-9CE5-2580E99F9066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

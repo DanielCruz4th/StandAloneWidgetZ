@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace SolutionZ.StandAloneWidget
 {
@@ -10,6 +11,11 @@ namespace SolutionZ.StandAloneWidget
     /// </summary>
     public class Brand
     {
+
+        public Brand()
+        {
+            this.ID = Guid.NewGuid();
+        }
         /// <summary>
         /// BrandFile ID - Guid
         /// </summary>
@@ -66,21 +72,25 @@ namespace SolutionZ.StandAloneWidget
         /// Must not be null
         /// </summary>
         [Required]
+        [HiddenInput(DisplayValue = false)]
         public DateTime DateCreated { get; set; }
 
         /// <summary>
         /// Created By - Audit
         /// </summary>
+        [HiddenInput(DisplayValue = false)]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// Last Updated Date
         /// </summary>
+        [HiddenInput(DisplayValue = false)]
         public DateTime? LastUdpatedDate { get; set; }
 
         /// <summary>
         /// Last Updated By
         /// </summary>
+        [HiddenInput(DisplayValue = false)]
         public string LastUpdatedBy { get; set; }
 
 
@@ -157,6 +167,15 @@ namespace SolutionZ.StandAloneWidget
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// Get All Brands
+        /// </summary>
+        /// <returns></returns>
+        public static List<Brand> GetAll()
+        {
+            return Brand.GetBrands( null, null, null, null);
         }
     }
 }
