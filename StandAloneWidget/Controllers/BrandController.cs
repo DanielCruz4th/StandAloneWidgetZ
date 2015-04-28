@@ -14,7 +14,7 @@ namespace StandAloneWidget
         // GET: /Brand/
         public ActionResult Index()
         {
-            return View(new BrandsModel() { Brands = Brand.GetAll() , brand = new Brand()});
+            return View(new BrandsModel() { Brands = Brand.GetAll().OrderBy(x=>x.WidgetHeader).ToList() , brand = new Brand()});
         }
 
         /// <summary>
