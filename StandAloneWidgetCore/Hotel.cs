@@ -9,6 +9,11 @@ namespace SolutionZ.StandAloneWidget
 {
     public class Hotel
     {
+        public Hotel()
+        {
+            this.ID = Guid.NewGuid();
+        }
+
         /// <summary>
         /// Hotel ID - Guid
         /// </summary>
@@ -159,7 +164,7 @@ namespace SolutionZ.StandAloneWidget
         }
 
         /// <summary>
-        /// Get all Hotels from DB
+        /// Get Hotels from DB
         /// </summary>
         /// <returns></returns>
         public static List<Hotel> GetHotels(Guid? id, string city, string state, string postalCode)
@@ -180,6 +185,15 @@ namespace SolutionZ.StandAloneWidget
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// Get ALL Hotels from DB
+        /// </summary>
+        /// <returns></returns>
+        public static List<Hotel> GetAll()
+        {
+            return GetHotels(null, null, null, null);
         }
 
 

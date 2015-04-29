@@ -122,6 +122,7 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\ChainController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -130,6 +131,7 @@
     <Compile Include="Models\CarsModel.cs" />
     <Compile Include="Models\ChainsModel.cs" />
     <Compile Include="Models\CitiesModel.cs" />
+    <Compile Include="Models\HotelsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +203,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\City\Update.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Hotel\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Hotel\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Hotel\Update.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
