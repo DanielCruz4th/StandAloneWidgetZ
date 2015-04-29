@@ -9,6 +9,11 @@ namespace SolutionZ.StandAloneWidget
 {
     public class Car
     {
+        public Car()
+        {
+            this.ID = Guid.NewGuid();
+        }
+
         /// <summary>
         /// ID - Guid
         /// </summary>
@@ -93,7 +98,7 @@ namespace SolutionZ.StandAloneWidget
         }
 
         /// <summary>
-        /// Get all Cars from DB
+        /// Get Cars from DB
         /// </summary>
         /// <returns></returns>
         public static List<Car> GetCars(Guid? id)
@@ -113,7 +118,14 @@ namespace SolutionZ.StandAloneWidget
             return list;
         }
 
-
+        /// <summary>
+        /// Get ALL Cars from DB
+        /// </summary>
+        /// <returns></returns>
+        public static List<Car> GetAll()
+        {
+            return GetCars(null);
+        }
 
     }
 }
