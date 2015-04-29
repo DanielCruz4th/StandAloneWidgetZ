@@ -9,6 +9,11 @@ namespace SolutionZ.StandAloneWidget
 {
     public class City
     {
+        public City()
+        {
+            this.ID = Guid.NewGuid();
+        }
+
         /// <summary>
         /// ID - Guid
         /// </summary>
@@ -95,7 +100,7 @@ namespace SolutionZ.StandAloneWidget
         }
 
         /// <summary>
-        /// Get all Cities from DB
+        /// Get Cities from DB
         /// </summary>
         /// <returns></returns>
         public static List<City> GetCities(Guid? id)
@@ -113,6 +118,15 @@ namespace SolutionZ.StandAloneWidget
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// Get ALL Cities from DB
+        /// </summary>
+        /// <returns></returns>
+        public static List<City> GetAll()
+        {
+            return GetCities(null);
         }
 
 

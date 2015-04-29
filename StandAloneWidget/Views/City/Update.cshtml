@@ -1,0 +1,100 @@
+﻿@model SolutionZ.StandAloneWidget.City
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>City</legend>
+    
+            @Html.HiddenFor(model => model.ID)
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.State)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.State)
+                @Html.ValidationMessageFor(model => model.State)
+            </div>
+    
+            @*
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateCreated)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DateCreated)
+                @Html.ValidationMessageFor(model => model.DateCreated)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CreatedBy)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CreatedBy)
+                @Html.ValidationMessageFor(model => model.CreatedBy)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LastUdpatedDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LastUdpatedDate)
+                @Html.ValidationMessageFor(model => model.LastUdpatedDate)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LastUpdatedBy)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LastUpdatedBy)
+                @Html.ValidationMessageFor(model => model.LastUpdatedBy)
+            </div>
+                *@
+
+            @Html.HiddenFor( x => Model.CreatedBy)
+
+            @Html.HiddenFor( x => Model.DateCreated)
+
+
+    
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+
+    @using (Html.BeginForm("Delete", "City", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.ID)
+        <input type="submit" value="Delete" />
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
