@@ -9,6 +9,12 @@ namespace SolutionZ.StandAloneWidget
 {
     public class Chain
     {
+        public Chain()
+        {
+            this.ID = Guid.NewGuid();
+        }
+
+
         /// <summary>
         /// ID - Guid
         /// </summary>
@@ -93,7 +99,7 @@ namespace SolutionZ.StandAloneWidget
         }
 
         /// <summary>
-        /// Get all Chains from DB
+        /// Get Chains from DB
         /// </summary>
         /// <returns></returns>
         public static List<Chain> GetChains(Guid? id)
@@ -111,6 +117,15 @@ namespace SolutionZ.StandAloneWidget
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// Get ALL chains from DB
+        /// </summary>
+        /// <returns></returns>
+        public static List<Chain> GetAll()
+        {
+            return GetChains(null);
         }
 
 

@@ -1,5 +1,4 @@
-﻿@model StandAloneWidget.Models.CarsModel
-
+﻿@model StandAloneWidget.Models.ChainsModel
 
 @{
     Layout = null;
@@ -19,24 +18,24 @@
     <table>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.car.Name)
+                @Html.DisplayNameFor(model => model.chain.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.car.DateCreated)
+                @Html.DisplayNameFor(model => model.chain.DateCreated)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.car.CreatedBy)
+                @Html.DisplayNameFor(model => model.chain.CreatedBy)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.car.LastUdpatedDate)
+                @Html.DisplayNameFor(model => model.chain.LastUdpatedDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.car.LastUpdatedBy)
+                @Html.DisplayNameFor(model => model.chain.LastUpdatedBy)
             </th>
             <th></th>
         </tr>
     
-    @foreach (var item in Model.Cars) {
+    @foreach (var item in Model.Chains) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
