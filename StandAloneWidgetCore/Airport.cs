@@ -9,6 +9,13 @@ namespace SolutionZ.StandAloneWidget
 {
     public class Airport
     {
+        public Airport()
+        {
+            this.ID = Guid.NewGuid();
+
+        }
+
+
         /// <summary>
         /// ID - Guid
         /// </summary>
@@ -103,7 +110,7 @@ namespace SolutionZ.StandAloneWidget
         }
 
         /// <summary>
-        /// Get all Airports from DB
+        /// Get Airports from DB
         /// </summary>
         /// <returns></returns>
         public static List<Airport> GetAirports(Guid? id , string code = "")
@@ -124,7 +131,14 @@ namespace SolutionZ.StandAloneWidget
             return list;
         }
 
-
+        /// <summary>
+        /// Get ALL airports
+        /// </summary>
+        /// <returns></returns>
+        public static List<Airport> GetAll()
+        {
+            return GetAirports(null, null);
+        }
 
     }
 }

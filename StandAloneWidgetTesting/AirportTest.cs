@@ -16,6 +16,7 @@ namespace StandAloneWidgetTesting
             airport.ID = Guid.NewGuid();
             airport.Name = "Ushuaia, Tierra Del Fuego, Argentina";
             airport.Code = "USH";
+            airport.Country = "ARG";
             airport.Latitude = "-54.8106";
             airport.Longitude = "-68.3278";
             airport.CreatedBy = "ADMIN";

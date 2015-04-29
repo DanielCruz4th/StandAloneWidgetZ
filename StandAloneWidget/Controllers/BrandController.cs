@@ -34,6 +34,7 @@ namespace StandAloneWidget
         public ActionResult Create(Brand brand)
         {
             //Persist
+            //TODO: Replace with Session USER.
             brand.CreatedBy = "UNKNOWN";
             brand.DateCreated = DateTime.Now;
             Brand.Insert(brand);
@@ -59,7 +60,8 @@ namespace StandAloneWidget
         [HttpPost]
         public ActionResult Update(Brand brand)
         {
-            //Update Values
+            //Complete & Persist
+            //TODO: Replace with Session USER
             brand.LastUpdatedBy = "UNKNOWN";
             brand.LastUdpatedDate = DateTime.Now;
 
