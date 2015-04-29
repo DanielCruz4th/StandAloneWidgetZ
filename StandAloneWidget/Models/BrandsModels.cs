@@ -11,5 +11,7 @@ namespace StandAloneWidget.Models
         public Brand brand;
         public List<Brand> Brands;
 
+        public PagingInfo PagingInfo { get; set; }
+
     }
 }

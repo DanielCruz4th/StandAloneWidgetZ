@@ -10,5 +10,7 @@ namespace StandAloneWidget.Models
     {
         public Hotel hotel;
         public List<Hotel> Hotels;
+
+
     }
 }

@@ -5,16 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SolutionZ.StandAloneWidget;
 
 namespace StandAloneWidget
 {
     public class BrandController : Controller
     {
+        public int PageSize = 10;
+
         //
         // GET: /Brand/
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(new BrandsModel() { Brands = Brand.GetAll().OrderBy(x=>x.WidgetHeader).ToList() , brand = new Brand()});
+            var query = Brand.GetAll();
+
+            return View(new BrandsModel()
+            {
+                Brands = query.OrderBy(x => x.WidgetHeader)
+                            .Skip((page - 1) * PageSize)
+                            .Take(PageSize).ToList(),
+                brand = new Brand(),
+                PagingInfo = new PagingInfo() { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = query.Count() }
+            });
         }
 
         /// <summary>
