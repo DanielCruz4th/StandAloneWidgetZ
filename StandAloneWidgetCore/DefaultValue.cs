@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
 namespace SolutionZ.StandAloneWidget
 {
@@ -34,7 +35,6 @@ namespace SolutionZ.StandAloneWidget
         /// Last Updated By
         /// </summary>
         public string LastUpdatedBy { get; set; }
-
 
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace SolutionZ.StandAloneWidget
         }
 
         /// <summary>
-        /// Get all Default Value from DB
+        /// Get Default Value from DB
         /// </summary>
         /// <returns></returns>
         public static List<DefaultValue> GetDefaultValues(string key)
@@ -109,7 +109,40 @@ namespace SolutionZ.StandAloneWidget
             return list;
         }
 
+        /// <summary>
+        /// Get ALL Default Values from DB
+        /// </summary>
+        /// <returns></returns>
+        public static List<DefaultValue> GetAll()
+        {
+            return GetDefaultValues(null);
+        }
 
+        /// <summary>
+        /// Generates Random String Key for Current Instance
+        /// </summary>
+        /// <param name="length"></param>
+        public void GenerateKeyString(int length)
+        {
+            this.DefaultKey = GenerateRandomString(length);
+        }
+
+        /// <summary>
+        /// Private Function
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        private static string GenerateRandomString(int length)
+        {
+            Random random = new Random();
+            string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            StringBuilder result = new StringBuilder(length);
+            for (int i = 0; i < length; i++)
+            {
+                result.Append(characters[random.Next(characters.Length)]);
+            }
+            return result.ToString();
+        }
 
     }
 }

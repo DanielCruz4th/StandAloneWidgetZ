@@ -1,0 +1,65 @@
+﻿@model StandAloneWidget.Models.DefaultValuesModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Default.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Default.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Default.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Default.LastUdpatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Default.LastUpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model.DefaultValues) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUdpatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Update", new { id=item.DefaultKey }) @*|
+                @Html.ActionLink("Details", "Details", new { id=item.DefaultKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.DefaultKey })*@
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
