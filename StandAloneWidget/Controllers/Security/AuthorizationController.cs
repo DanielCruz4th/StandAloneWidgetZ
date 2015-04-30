@@ -7,12 +7,12 @@ using System.Web.Mvc;
 namespace StandAloneWidget.Controllers
 {
     [AllowAnonymous]
-    public class AdminController : Controller
+    public class AuthorizationController : Controller
     {
         //
-        // GET: /Admin/
+        // GET: /Auth/
 
-        public ActionResult Index()
+        public ActionResult LogIn()
         {
             return View();
         }

@@ -8,6 +8,9 @@ namespace StandAloneWidget
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            
+            //Un-Commnent if Security is Required.
+            //filters.Add(new AuthorizeAttribute());
         }
     }
 }
