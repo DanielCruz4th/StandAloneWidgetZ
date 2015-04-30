@@ -1,4 +1,6 @@
-﻿@{
+﻿@model StandAloneWidget.Models.Security.LogInModel
+
+@{
     Layout = null;
 }
 
@@ -11,7 +13,20 @@
 </head>
 <body>
     <div>
-        
+        <h2>Log in</h2>
+
+        @Html.ValidationSummary(true)
+
+        @using(Html.BeginForm())
+        {
+            @Html.EditorForModel()
+            
+            <p>
+                <button type="submit">Log In</button>
+            </p>
+            
+        }
+
     </div>
 </body>
 </html>
