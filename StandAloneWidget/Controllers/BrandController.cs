@@ -95,6 +95,11 @@ namespace StandAloneWidget
             return RedirectToAction("Index", "Brand");
         }
 
+        public ActionResult Export()
+        {
+            return View();
+        }
+
         [HttpGet]
         public JavaScriptResult ParseBrand(Guid ID)
         {
@@ -107,8 +112,7 @@ namespace StandAloneWidget
                 Brand brand = Brand.GetBrands(ID, null, null, null).First();
                 string serializedBrand = JsonConvert.SerializeObject(brand);
 
-                js = "<script>alert('hello world')</script>";
-
+                js = String.Format("alert('{0}')", serializedBrand);
 
                 return JavaScript(js);
             }
