@@ -60,12 +60,13 @@ namespace StandAloneWidgetTesting
             BrandFileCreate();
 
             //Arrange
-            var brands = Brand.GetBrands(null, null, null, null);
+            var brands = Brand.GetAll();
 
             //Assert
             Assert.IsTrue(brands.Count > 0);
 
         }
+
 
         [TestMethod]
         public void BrandFileDelete()

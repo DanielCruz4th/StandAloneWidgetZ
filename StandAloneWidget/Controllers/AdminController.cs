@@ -8,7 +8,7 @@ using StandAloneWidget.Controllers.Security;
 
 namespace StandAloneWidget.Controllers
 {
-    [AllowAnonymous]
+    //[AllowAnonymous]
     public class AdminController : AppController
     {
         //

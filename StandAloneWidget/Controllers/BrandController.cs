@@ -1,10 +1,12 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+
 
 namespace StandAloneWidget
 {
@@ -92,5 +94,29 @@ namespace StandAloneWidget
 
             return RedirectToAction("Index", "Brand");
         }
+
+        [HttpGet]
+        public JavaScriptResult ParseBrand(Guid ID)
+        {
+            try
+            {
+                //Declare variables
+                string js = string.Empty;
+
+                //Retrieve
+                Brand brand = Brand.GetBrands(ID, null, null, null).First();
+                string serializedBrand = JsonConvert.SerializeObject(brand);
+
+                js = "<script>alert('hello world')</script>";
+
+
+                return JavaScript(js);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }
