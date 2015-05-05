@@ -1,4 +1,5 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ namespace StandAloneWidget.Controllers
         }
 
         /// <summary>
-        /// 
+        /// POST: /Chain/Update
         /// </summary>
         /// <param name="chain"></param>
         /// <returns></returns>
@@ -73,6 +74,11 @@ namespace StandAloneWidget.Controllers
 
         }
 
+        /// <summary>
+        /// POST: /Chain/Delete
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(Guid ID)
         {
@@ -85,6 +91,33 @@ namespace StandAloneWidget.Controllers
             //Return
             return RedirectToAction("Index", "Chain");
 
+        }
+
+        /// <summary>
+        /// GET: /Chain/Parse
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JavaScriptResult Parse(Guid ID)
+        {
+            try
+            {
+                //Declare variables
+                string js = string.Empty;
+
+                //Retrieve
+                Chain chain = Chain.GetChains(ID).First();
+                js = JsonConvert.SerializeObject(chain);
+
+                return JavaScript(js);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

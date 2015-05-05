@@ -1,4 +1,5 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace StandAloneWidget.Controllers
         }
 
         /// <summary>
-        /// POST /Airport/Delete
+        /// POST: /Airport/Delete
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
@@ -87,6 +88,33 @@ namespace StandAloneWidget.Controllers
             Airport.Delete(deletedAirport);
 
             return RedirectToAction("Index", "Airport");
+        }
+
+        /// <summary>
+        /// GET: /Airport/Parse
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JavaScriptResult Parse(Guid ID)
+        {
+            try
+            {
+                //Declare variables
+                string js = string.Empty;
+
+                //Retrieve
+                Airport airport = Airport.GetAirports(ID).First();
+                js = JsonConvert.SerializeObject(airport);
+
+                return JavaScript(js);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

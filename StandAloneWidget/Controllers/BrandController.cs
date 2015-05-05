@@ -84,6 +84,11 @@ namespace StandAloneWidget
             return RedirectToAction("Index", "Brand");
         }
 
+        /// <summary>
+        /// POST: /Brand/Delete
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(Guid ID)
         {
@@ -95,13 +100,14 @@ namespace StandAloneWidget
             return RedirectToAction("Index", "Brand");
         }
 
-        public ActionResult Export()
-        {
-            return View();
-        }
-
+        /// <summary>
+        /// GET: /Brand/Parse
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet]
-        public JavaScriptResult ParseBrand(Guid ID)
+        public JavaScriptResult Parse(Guid ID)
         {
             try
             {
@@ -110,17 +116,27 @@ namespace StandAloneWidget
 
                 //Retrieve
                 Brand brand = Brand.GetBrands(ID, null, null, null).First();
-                string serializedBrand = JsonConvert.SerializeObject(brand);
+                js = JsonConvert.SerializeObject(brand);
 
-                js = String.Format("alert('{0}')", serializedBrand);
+                // JavaScript Example
+                //js = String.Format("alert('{0}')", serializedBrand);
 
                 return JavaScript(js);
+
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
         }
+
+        [AllowAnonymous]
+        public ActionResult Export()
+        {
+            return View();
+        }
+
+
 
     }
 }

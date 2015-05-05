@@ -1,4 +1,5 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,11 @@ namespace StandAloneWidget.Controllers
             return View(City.GetCities(id).First());
         }
 
+        /// <summary>
+        /// POST: /City/Update
+        /// </summary>
+        /// <param name="city"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Update(City city)
         {
@@ -68,6 +74,11 @@ namespace StandAloneWidget.Controllers
             return RedirectToAction("Index", "City");
         }
 
+        /// <summary>
+        /// POST: /City/Delete
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(Guid ID)
         {
@@ -79,6 +90,33 @@ namespace StandAloneWidget.Controllers
 
             //Ret
             return RedirectToAction("Index", "City");
+        }
+
+        /// <summary>
+        /// GET: /City/Parse
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JavaScriptResult Parse(Guid ID)
+        {
+            try
+            {
+                //Declare variables
+                string js = string.Empty;
+
+                //Retrieve
+                City city = City.GetCities(ID).First();
+                js = JsonConvert.SerializeObject(city);
+
+                return JavaScript(js);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
 

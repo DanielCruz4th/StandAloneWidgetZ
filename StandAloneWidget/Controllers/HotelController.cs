@@ -1,4 +1,5 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -72,6 +73,11 @@ namespace StandAloneWidget.Controllers
             return RedirectToAction("Index", "Hotel");
         }
 
+        /// <summary>
+        /// POST: /Hotel/Delete
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(Guid ID)
         {
@@ -81,6 +87,33 @@ namespace StandAloneWidget.Controllers
             Hotel.Delete(deletedHotel);
 
             return RedirectToAction("Index", "Hotel");
+        }
+
+        /// <summary>
+        /// GET: /Hotel/Parse
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JavaScriptResult Parse(Guid ID)
+        {
+            try
+            {
+                //Declare variables
+                string js = string.Empty;
+
+                //Retrieve
+                Hotel hotel = Hotel.GetHotels(ID ,null, null, null).First();
+                js = JsonConvert.SerializeObject(hotel);
+
+                return JavaScript(js);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

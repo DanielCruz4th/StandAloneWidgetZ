@@ -1,8 +1,10 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -90,6 +92,38 @@ namespace StandAloneWidget.Controllers
 
             return RedirectToAction("Index", "DefaultValue");
         }
+
+        /// <summary>
+        /// Parse to JavaScriptResult
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JavaScriptResult Parse()
+        {
+
+            //Retrieve
+            List<DefaultValue> valuesList = DefaultValue.GetAll();
+            string js = JsonConvert.SerializeObject(valuesList);
+            
+            return JavaScript(js);
+        }
+
+        ///// <summary>
+        ///// JsonResult Example
+        ///// </summary>
+        ///// <returns></returns>
+        //[AllowAnonymous]
+        //[HttpGet]
+        //public JsonResult ParseJson()
+        //{
+
+        //    //Retrieve
+        //    List<DefaultValue> valuesList = DefaultValue.GetAll();
+        //    string js = JsonConvert.SerializeObject(valuesList, Formatting.Indented);
+
+        //    return Json(js, JsonRequestBehavior.AllowGet);
+        //}
 
 
     }

@@ -1,4 +1,5 @@
-﻿using SolutionZ.StandAloneWidget;
+﻿using Newtonsoft.Json;
+using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,11 @@ namespace StandAloneWidget.Controllers
         
         }
 
+        /// <summary>
+        /// POST: /Car/Delete
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(Guid ID)
         {
@@ -86,6 +92,33 @@ namespace StandAloneWidget.Controllers
             return RedirectToAction("Index", "Car");
         }
 
+
+        /// <summary>
+        /// GET: /Car/Parse
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JavaScriptResult Parse(Guid ID)
+        {
+            try
+            {
+                //Declare variables
+                string js = string.Empty;
+
+                //Retrieve
+                Car car = Car.GetCars(ID).First();
+                js = JsonConvert.SerializeObject(car);
+
+                return JavaScript(js);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     
 
     }
