@@ -1,0 +1,28 @@
+﻿@model StandAloneWidget.Models.UploadFileModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Get", "UploadedFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.EditorForModel()
+            <div class="editor-label">Image</div>
+            <div class="editor-field">
+                <div>Upload new image: <input type="file" name="file" /></div>
+            </div>
+            <input type="submit" value="Save" />
+
+        }
+    </div>
+</body>
+</html>

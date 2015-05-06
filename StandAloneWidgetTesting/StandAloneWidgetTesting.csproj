@@ -95,8 +95,13 @@
     <Compile Include="DefaultValueTest.cs" />
     <Compile Include="CityTest.cs" />
     <Compile Include="ChainTest.cs" />
+    <Compile Include="UploadedFileTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rainbow\Rainbow.Web.csproj">
+      <Project>{8585a923-ed0f-4c4a-898a-de6903aa781e}</Project>
+      <Name>Rainbow.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StandAloneWidgetCore\SolutionZ.StandAloneWidget.csproj">
       <Project>{04e2c983-e658-432c-a187-8250e853ca4d}</Project>
       <Name>SolutionZ.StandAloneWidget</Name>
