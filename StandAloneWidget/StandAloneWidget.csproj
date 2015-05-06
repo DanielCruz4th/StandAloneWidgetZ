@@ -161,6 +161,7 @@
     <Compile Include="Controllers\Security\AppUser.cs" />
     <Compile Include="Controllers\Security\AppUserPrincipal.cs" />
     <Compile Include="Controllers\Security\AuthorizationController.cs" />
+    <Compile Include="Controllers\UploadFileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +177,7 @@
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\Security\LogInModel.cs" />
     <Compile Include="Models\Security\RegisterModel.cs" />
+    <Compile Include="Models\UploadedFileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Startup.cs" />
   </ItemGroup>
@@ -203,6 +205,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rainbow\Rainbow.Web.csproj">
+      <Project>{8585a923-ed0f-4c4a-898a-de6903aa781e}</Project>
+      <Name>Rainbow.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StandAloneWidgetCore\SolutionZ.StandAloneWidget.csproj">
       <Project>{04e2c983-e658-432c-a187-8250e853ca4d}</Project>
       <Name>SolutionZ.StandAloneWidget</Name>
