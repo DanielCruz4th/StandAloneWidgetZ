@@ -620,7 +620,8 @@ namespace Rainbow.Web
         protected virtual void OnPropertyChanging(string propertyName)
         {
             var property = this.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                .Where(p => p.CanWrite && p.CanRead && p.Name == propertyName)
+                .Where(p => p.CanWrite && p.CanRead && p.Name == propertyName
+                    && Attribute.IsDefined(p, typeof(ConcurrencyCheckAttribute)))
                 .FirstOrDefault();
 
             var value = property != null ? property.GetValue(this, null) : null;
