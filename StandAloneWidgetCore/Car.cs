@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 
 namespace SolutionZ.StandAloneWidget
@@ -18,9 +19,25 @@ namespace SolutionZ.StandAloneWidget
         /// ID - Guid
         /// </summary>
         [Key]
+        [HiddenInput(DisplayValue = false)]
         public Guid ID { get; set; }
 
         public string Name { get; set; }
+
+        [MaxLength(2)]
+        public string Code { get; set; }
+
+        [Display(Name="Company text")]
+        public string CompanyText { get; set;}
+
+        [Display(Name = "Title tag")]
+        public string TitleTag { get; set; }
+
+        [Display(Name = "Phone number")]
+        public string PrimaryPhoneNumber { get; set; }
+
+        [Display(Name = "Alternate phone number")]
+        public string SecondaryPhoneNumber { get; set; }
 
         /// <summary>
         /// Date Created - Audit
@@ -43,7 +60,6 @@ namespace SolutionZ.StandAloneWidget
         /// Last Updated By
         /// </summary>
         public string LastUpdatedBy { get; set; }
-
 
 
         /// <summary>

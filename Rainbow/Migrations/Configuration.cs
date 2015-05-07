@@ -9,7 +9,7 @@ namespace Rainbow.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Rainbow.Web.Storage.SqlUploadStorageContext context)

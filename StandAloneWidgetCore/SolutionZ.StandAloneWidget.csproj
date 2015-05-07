@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201504271428145_AirportAdjust.Designer.cs">
       <DependentUpon>201504271428145_AirportAdjust.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505071731158_CarsAdjustments.cs" />
+    <Compile Include="Migrations\201505071731158_CarsAdjustments.Designer.cs">
+      <DependentUpon>201505071731158_CarsAdjustments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504271428145_AirportAdjust.resx">
       <DependentUpon>201504271428145_AirportAdjust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505071731158_CarsAdjustments.resx">
+      <DependentUpon>201505071731158_CarsAdjustments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

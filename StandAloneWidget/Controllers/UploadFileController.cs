@@ -96,5 +96,13 @@ namespace StandAloneWidget.Controllers
             return RedirectToAction("List", new { reference = reference });
         }
 
+        [AllowAnonymous]
+        public FileContentResult GetImage(Guid ID)
+        {
+            var file = UploadedFile.Load(ID);
+
+            return File(file.Data, file.ContentType);
+        }
+
     }
 }

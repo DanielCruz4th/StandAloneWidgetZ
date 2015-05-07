@@ -291,6 +291,9 @@
   <ItemGroup>
     <Content Include="Views\UploadedFile\Upload.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UploadedFile\List.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

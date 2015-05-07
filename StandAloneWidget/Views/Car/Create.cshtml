@@ -22,13 +22,53 @@
     
         <fieldset>
             <legend>Car</legend>
-    
+            
             <div class="editor-label">
                 @Html.LabelFor(model => model.Name)
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Code)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Code)
+                @Html.ValidationMessageFor(model => model.Code)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CompanyText)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CompanyText)
+                @Html.ValidationMessageFor(model => model.CompanyText)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TitleTag)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TitleTag)
+                @Html.ValidationMessageFor(model => model.TitleTag)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PrimaryPhoneNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PrimaryPhoneNumber)
+                @Html.ValidationMessageFor(model => model.PrimaryPhoneNumber)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SecondaryPhoneNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SecondaryPhoneNumber)
+                @Html.ValidationMessageFor(model => model.SecondaryPhoneNumber)
             </div>
     
             @*
