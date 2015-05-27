@@ -119,7 +119,19 @@ namespace StandAloneWidget.Controllers
                 throw;
             }
         }
-    
+
+        /// <summary>
+        /// JsonResult
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult Get()
+        {
+            //Retrieve
+            List<Car> carList = Car.GetAll();
+            return Json(JsonConvert.SerializeObject(carList) , JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

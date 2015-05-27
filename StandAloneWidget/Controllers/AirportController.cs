@@ -117,5 +117,19 @@ namespace StandAloneWidget.Controllers
             }
         }
 
+        /// <summary>
+        /// JsonResult
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult Get()
+        {
+            //Retrieve
+            List<Airport> airportList = Airport.GetAll();
+            return Json(JsonConvert.SerializeObject(airportList), JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

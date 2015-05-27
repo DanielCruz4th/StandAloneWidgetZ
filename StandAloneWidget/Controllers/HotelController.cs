@@ -116,5 +116,18 @@ namespace StandAloneWidget.Controllers
             }
         }
 
+        /// <summary>
+        /// JsonResult
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult Get()
+        {
+            //Retrieve
+            List<Hotel> hotelList = Hotel.GetAll();
+            return Json(JsonConvert.SerializeObject(hotelList), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

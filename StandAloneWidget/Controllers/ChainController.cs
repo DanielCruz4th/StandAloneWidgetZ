@@ -120,5 +120,18 @@ namespace StandAloneWidget.Controllers
             }
         }
 
+        /// <summary>
+        /// JsonResult
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult Get()
+        {
+            //Retrieve
+            List<Chain> chainList = Chain.GetAll();
+            return Json(JsonConvert.SerializeObject(chainList), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

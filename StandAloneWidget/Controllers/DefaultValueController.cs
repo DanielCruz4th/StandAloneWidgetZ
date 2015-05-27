@@ -109,21 +109,20 @@ namespace StandAloneWidget.Controllers
             return JavaScript(js);
         }
 
-        ///// <summary>
-        ///// JsonResult Example
-        ///// </summary>
-        ///// <returns></returns>
-        //[AllowAnonymous]
-        //[HttpGet]
-        //public JsonResult ParseJson()
-        //{
+        /// <summary>
+        /// JsonResult Example
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult Get()
+        {
+            //Retrieve
+            List<DefaultValue> valuesList = DefaultValue.GetAll();
+            string js = JsonConvert.SerializeObject(valuesList);
 
-        //    //Retrieve
-        //    List<DefaultValue> valuesList = DefaultValue.GetAll();
-        //    string js = JsonConvert.SerializeObject(valuesList, Formatting.Indented);
-
-        //    return Json(js, JsonRequestBehavior.AllowGet);
-        //}
+            return Json(js, JsonRequestBehavior.AllowGet);
+        }
 
 
     }

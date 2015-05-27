@@ -142,6 +142,5 @@ namespace SolutionZ.StandAloneWidget
         {
             return GetCars(null);
         }
-
     }
 }
