@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 namespace StandAloneWidget.Controllers
 {
@@ -126,11 +128,13 @@ namespace StandAloneWidget.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
         public JsonResult Get()
         {
             //Retrieve
             List<Chain> chainList = Chain.GetAll();
-            return Json(JsonConvert.SerializeObject(chainList), JsonRequestBehavior.AllowGet);
+            return Json(chainList, JsonRequestBehavior.AllowGet);
         }
 
     }

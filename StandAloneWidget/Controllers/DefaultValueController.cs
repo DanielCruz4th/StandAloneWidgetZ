@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 namespace StandAloneWidget.Controllers
 {
@@ -115,13 +117,13 @@ namespace StandAloneWidget.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
         public JsonResult Get()
         {
             //Retrieve
             List<DefaultValue> valuesList = DefaultValue.GetAll();
-            string js = JsonConvert.SerializeObject(valuesList);
-
-            return Json(js, JsonRequestBehavior.AllowGet);
+            return Json(valuesList, JsonRequestBehavior.AllowGet);
         }
     }
 }

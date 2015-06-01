@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 namespace StandAloneWidget.Controllers
 {
@@ -12,13 +14,13 @@ namespace StandAloneWidget.Controllers
     {
         [AllowAnonymous]
         [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
         public JsonResult Get()
         {
             //Retrieve
             List<AirVendor> valuesList = AirVendor.GetAll();
-            string js = JsonConvert.SerializeObject(valuesList);
-
-            return Json(js, JsonRequestBehavior.AllowGet);
+            return Json(valuesList, JsonRequestBehavior.AllowGet);
         }
 
     }
