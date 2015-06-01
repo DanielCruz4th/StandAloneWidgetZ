@@ -59,6 +59,11 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<AirVendor> AirVendors { get; set; }
 
+        /// <summary>
+        /// Cabin Classes Context
+        /// </summary>
+        public DbSet<CabinClass> CabinClasses { get; set; }
+
 
 
     }

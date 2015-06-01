@@ -123,7 +123,5 @@ namespace StandAloneWidget.Controllers
 
             return Json(js, JsonRequestBehavior.AllowGet);
         }
-
-
     }
 }

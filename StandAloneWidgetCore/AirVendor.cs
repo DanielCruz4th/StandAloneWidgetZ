@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Data.Entity;
 
 
 namespace SolutionZ.StandAloneWidget
@@ -29,6 +30,40 @@ namespace SolutionZ.StandAloneWidget
             using(var db = new StandAloneWidgetContext())
             {
                 db.AirVendors.Add(airVendor);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Update Air Vendor
+        /// </summary>
+        /// <param name="airVendor"></param>
+        public static void Update(AirVendor airVendor)
+        {
+            if (airVendor == null)
+                throw new ArgumentNullException("airVendor");
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                db.AirVendors.Attach(airVendor);
+                db.Entry(airVendor).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Delete Air Vendor
+        /// </summary>
+        /// <param name="airVendor"></param>
+        public static void Delete(AirVendor airVendor)
+        {
+            if (airVendor == null)
+                throw new ArgumentNullException("airVendor");
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                db.AirVendors.Attach(airVendor);
+                db.AirVendors.Remove(airVendor);
                 db.SaveChanges();
             }
         }

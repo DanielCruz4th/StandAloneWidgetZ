@@ -151,7 +151,9 @@
     <Compile Include="AppDbContext.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
+    <Compile Include="Controllers\AirVendorController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\CabinClassController.cs" />
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\ChainController.cs" />
     <Compile Include="Controllers\CityController.cs" />
@@ -166,15 +168,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
-    <Compile Include="Migrations\201505041432379_InitialCreate.cs" />
-    <Compile Include="Migrations\201505041432379_InitialCreate.Designer.cs">
-      <DependentUpon>201505041432379_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505292210595_AirVendros.cs" />
-    <Compile Include="Migrations\201505292210595_AirVendros.Designer.cs">
-      <DependentUpon>201505292210595_AirVendros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AirportsModel.cs" />
     <Compile Include="Models\BrandsModels.cs" />
     <Compile Include="Models\CarsModel.cs" />
@@ -305,14 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\StandAloneWidget.pubxml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505041432379_InitialCreate.resx">
-      <DependentUpon>201505041432379_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505292210595_AirVendros.resx">
-      <DependentUpon>201505292210595_AirVendros.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

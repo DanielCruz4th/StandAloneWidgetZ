@@ -177,5 +177,7 @@ namespace SolutionZ.StandAloneWidget
         {
             return Brand.GetBrands( null, null, null, null);
         }
+
+
     }
 }

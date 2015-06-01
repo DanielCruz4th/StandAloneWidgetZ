@@ -79,6 +79,7 @@
     <Compile Include="AirVendor.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="Airport.cs" />
+    <Compile Include="CabinClass.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Chain.cs" />
     <Compile Include="City.cs" />
@@ -87,6 +88,10 @@
     <Compile Include="Migrations\201505292302522_Initial.cs" />
     <Compile Include="Migrations\201505292302522_Initial.Designer.cs">
       <DependentUpon>201505292302522_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506011427578_CabinClass.cs" />
+    <Compile Include="Migrations\201506011427578_CabinClass.Designer.cs">
+      <DependentUpon>201506011427578_CabinClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
@@ -100,6 +105,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505292302522_Initial.resx">
       <DependentUpon>201505292302522_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506011427578_CabinClass.resx">
+      <DependentUpon>201506011427578_CabinClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
