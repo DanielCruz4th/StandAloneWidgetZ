@@ -73,14 +73,14 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static List<AirVendor> GetAirVendors(string key)
+        public static List<AirVendor> GetAirVendors(string code)
         {
             List<AirVendor> list = new List<AirVendor>();
 
             using (var db = new StandAloneWidgetContext())
             {
                 var query = from airVendors in db.AirVendors
-                            where string.IsNullOrEmpty(key)
+                            where string.IsNullOrEmpty(code) || airVendors.Code == code
                             select airVendors;
 
                 list.AddRange(query);

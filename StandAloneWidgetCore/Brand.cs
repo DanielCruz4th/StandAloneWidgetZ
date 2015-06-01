@@ -158,7 +158,7 @@ namespace SolutionZ.StandAloneWidget
                 //Get from DB
                 var query = from brand in db.Brands
                             where !id.HasValue || brand.ID == id.Value
-                            where string.IsNullOrEmpty(city) || brand.City == city
+                            where string.IsNullOrEmpty(city) || (!string.IsNullOrEmpty(brand.City) && brand.City.Contains(city))
                             where string.IsNullOrEmpty(state) || brand.State == state
                             where string.IsNullOrEmpty(postalCode) || brand.PostalCode == postalCode
                             select brand;

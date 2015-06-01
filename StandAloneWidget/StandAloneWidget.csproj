@@ -169,7 +169,9 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Models\AirportsModel.cs" />
+    <Compile Include="Models\AirVendorModel.cs" />
     <Compile Include="Models\BrandsModels.cs" />
+    <Compile Include="Models\CabinClassModel.cs" />
     <Compile Include="Models\CarsModel.cs" />
     <Compile Include="Models\ChainsModel.cs" />
     <Compile Include="Models\CitiesModel.cs" />
@@ -298,6 +300,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\StandAloneWidget.pubxml" />
+    <Content Include="Views\AirVendor\Index.cshtml" />
+    <Content Include="Views\AirVendor\Create.cshtml" />
+    <Content Include="Views\AirVendor\Update.cshtml" />
+    <Content Include="Views\CabinClass\Index.cshtml" />
+    <Content Include="Views\CabinClass\Create.cshtml" />
+    <Content Include="Views\CabinClass\Update.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

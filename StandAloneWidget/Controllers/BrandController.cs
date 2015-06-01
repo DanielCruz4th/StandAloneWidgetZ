@@ -2,10 +2,13 @@
 using SolutionZ.StandAloneWidget;
 using StandAloneWidget.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 
 namespace StandAloneWidget
@@ -99,6 +102,17 @@ namespace StandAloneWidget
 
             return RedirectToAction("Index", "Brand");
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Get()
+        {
+            List<Brand> brandList = Brand.GetAll();
+            return Json(brandList, JsonRequestBehavior.AllowGet);
+        }
+
 
         /// <summary>
         /// GET: /Brand/Parse
