@@ -7,13 +7,13 @@ namespace SolutionZ.StandAloneWidget.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AirportImplementation : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AirportImplementation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504271422034_AirportImplementation"; }
+            get { return "201505292302522_Initial"; }
         }
         
         string IMigrationMetadata.Source

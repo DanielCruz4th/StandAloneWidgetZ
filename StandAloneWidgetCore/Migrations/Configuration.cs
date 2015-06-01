@@ -9,8 +9,7 @@ namespace SolutionZ.StandAloneWidget.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "SolutionZ.StandAloneWidget.StandAloneWidgetContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SolutionZ.StandAloneWidget.StandAloneWidgetContext context)

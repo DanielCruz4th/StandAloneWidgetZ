@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirVendor.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="Airport.cs" />
     <Compile Include="Car.cs" />
@@ -83,45 +84,9 @@
     <Compile Include="City.cs" />
     <Compile Include="DefaultValue.cs" />
     <Compile Include="Hotel.cs" />
-    <Compile Include="Migrations\201504231647544_InitialCreate.cs" />
-    <Compile Include="Migrations\201504231647544_InitialCreate.Designer.cs">
-      <DependentUpon>201504231647544_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504241756565_HotelImplementation.cs" />
-    <Compile Include="Migrations\201504241756565_HotelImplementation.Designer.cs">
-      <DependentUpon>201504241756565_HotelImplementation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504242052493_DefaultValues.cs" />
-    <Compile Include="Migrations\201504242052493_DefaultValues.Designer.cs">
-      <DependentUpon>201504242052493_DefaultValues.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504242119544_DefaultChange.cs" />
-    <Compile Include="Migrations\201504242119544_DefaultChange.Designer.cs">
-      <DependentUpon>201504242119544_DefaultChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504242211119_CityImplementation.cs" />
-    <Compile Include="Migrations\201504242211119_CityImplementation.Designer.cs">
-      <DependentUpon>201504242211119_CityImplementation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271346005_ChainImplementation.cs" />
-    <Compile Include="Migrations\201504271346005_ChainImplementation.Designer.cs">
-      <DependentUpon>201504271346005_ChainImplementation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271409408_CarImplementation.cs" />
-    <Compile Include="Migrations\201504271409408_CarImplementation.Designer.cs">
-      <DependentUpon>201504271409408_CarImplementation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271422034_AirportImplementation.cs" />
-    <Compile Include="Migrations\201504271422034_AirportImplementation.Designer.cs">
-      <DependentUpon>201504271422034_AirportImplementation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271428145_AirportAdjust.cs" />
-    <Compile Include="Migrations\201504271428145_AirportAdjust.Designer.cs">
-      <DependentUpon>201504271428145_AirportAdjust.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505071731158_CarsAdjustments.cs" />
-    <Compile Include="Migrations\201505071731158_CarsAdjustments.Designer.cs">
-      <DependentUpon>201505071731158_CarsAdjustments.cs</DependentUpon>
+    <Compile Include="Migrations\201505292302522_Initial.cs" />
+    <Compile Include="Migrations\201505292302522_Initial.Designer.cs">
+      <DependentUpon>201505292302522_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
@@ -133,35 +98,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504231647544_InitialCreate.resx">
-      <DependentUpon>201504231647544_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504241756565_HotelImplementation.resx">
-      <DependentUpon>201504241756565_HotelImplementation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504242052493_DefaultValues.resx">
-      <DependentUpon>201504242052493_DefaultValues.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504242119544_DefaultChange.resx">
-      <DependentUpon>201504242119544_DefaultChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504242211119_CityImplementation.resx">
-      <DependentUpon>201504242211119_CityImplementation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271346005_ChainImplementation.resx">
-      <DependentUpon>201504271346005_ChainImplementation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271409408_CarImplementation.resx">
-      <DependentUpon>201504271409408_CarImplementation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271422034_AirportImplementation.resx">
-      <DependentUpon>201504271422034_AirportImplementation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271428145_AirportAdjust.resx">
-      <DependentUpon>201504271428145_AirportAdjust.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505071731158_CarsAdjustments.resx">
-      <DependentUpon>201505071731158_CarsAdjustments.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505292302522_Initial.resx">
+      <DependentUpon>201505292302522_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

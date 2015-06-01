@@ -54,6 +54,11 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<Airport> Airports { get; set; }
 
+        /// <summary>
+        /// Air Vendors Context
+        /// </summary>
+        public DbSet<AirVendor> AirVendors { get; set; }
+
 
 
     }
