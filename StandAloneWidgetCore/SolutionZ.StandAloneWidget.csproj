@@ -93,6 +93,10 @@
     <Compile Include="Migrations\201506011427578_CabinClass.Designer.cs">
       <DependentUpon>201506011427578_CabinClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506021409486_CabinClassIDAlter.cs" />
+    <Compile Include="Migrations\201506021409486_CabinClassIDAlter.Designer.cs">
+      <DependentUpon>201506021409486_CabinClassIDAlter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506011427578_CabinClass.resx">
       <DependentUpon>201506011427578_CabinClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506021409486_CabinClassIDAlter.resx">
+      <DependentUpon>201506021409486_CabinClassIDAlter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

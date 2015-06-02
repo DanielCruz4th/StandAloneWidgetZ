@@ -17,7 +17,7 @@ namespace StandAloneWidget.Controllers
         // GET: /Car/
         public ActionResult Index()
         {
-            return View(new CarsModel() { Cars = Car.GetAll().OrderBy(x => x.Name).ToList() , car = new Car() } );
+            return View(new CarsModel() { Cars = Car.GetAll().OrderBy(x => x.Name).ToList(), car = new Car() });
         }
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace StandAloneWidget.Controllers
             Car.Update(car);
 
             return RedirectToAction("Index", "Car");
-        
-        
+
+
         }
 
         /// <summary>
@@ -134,8 +134,30 @@ namespace StandAloneWidget.Controllers
         {
             //Retrieve
             List<Car> carList = Car.GetAll();
-            return Json(carList , JsonRequestBehavior.AllowGet);
+            return Json(carList, JsonRequestBehavior.AllowGet);
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Pickup(string query)
+        {
+            var cities = from city in City.GetCities(null, query)
+                          select new
+                          {
+                              key = string.Format("CITY|{1}", city.ID),
+                              value = city.Name
+                          };
+
+            var codes = from code in Airport.GetAirports(null, query)
+                           select new
+                           {
+                               key = string.Format("AIR|{1}", code.ID),
+                               value = code.Code
+                           };
+
+            return Json(cities.Union(codes), JsonRequestBehavior.AllowGet);
+        }
     }
 }

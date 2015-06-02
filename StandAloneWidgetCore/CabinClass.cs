@@ -3,14 +3,33 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SolutionZ.StandAloneWidget
 {
     public class CabinClass
     {
+        public CabinClass()
+        {
+            this.ID = Guid.NewGuid();
+        }
+
+        /// <summary>
+        /// Cabin Class ID
+        /// </summary>
         [Key]
+        public Guid ID { get; set; }
+        
+        /// <summary>
+        /// Cabin Class Code - Unique
+        /// </summary>
+        [Index(IsUnique = true)]
+        [StringLength(25)]
         public string Code { get; set; }
 
+        /// <summary>
+        /// Cabin Class Name
+        /// </summary>
         public string Name { get; set; }
 
         /// <summary>
@@ -68,14 +87,14 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public static List<CabinClass> GetCabinClass(string code)
+        public static List<CabinClass> GetCabinClass(Guid? id)
         {
             List<CabinClass> list = new List<CabinClass>();
 
             using (var db = new StandAloneWidgetContext())
             {
                 var query = from cabinClass in db.CabinClasses
-                            where string.IsNullOrEmpty(code) || cabinClass.Code == code
+                            where !id.HasValue || cabinClass.ID == id
                             select cabinClass;
 
                 list.AddRange(query);

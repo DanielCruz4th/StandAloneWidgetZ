@@ -51,7 +51,7 @@ namespace StandAloneWidget.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult Update(string id)
+        public ActionResult Update(Guid id)
         {
             return View(CabinClass.GetCabinClass(id).First());
         }
@@ -74,9 +74,12 @@ namespace StandAloneWidget.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Delete(string Code)
+        public ActionResult Delete(Guid id)
         {
-            CabinClass deleteCabinClass = CabinClass.GetCabinClass(Code).First();
+            //Retrieve and Delete
+            CabinClass deleteCabinClass = CabinClass.GetCabinClass(id).First();
+            CabinClass.Delete(deleteCabinClass);
+            
             return RedirectToAction("Index", "CabinClass");
         }
 

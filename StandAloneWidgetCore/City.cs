@@ -99,11 +99,16 @@ namespace SolutionZ.StandAloneWidget
             }
         }
 
+        public static List<City> GetCities(Guid id)
+        {
+            return City.GetCities(id, null);
+        }
+
         /// <summary>
         /// Get Cities from DB
         /// </summary>
         /// <returns></returns>
-        public static List<City> GetCities(Guid? id)
+        public static List<City> GetCities(Guid? id, string name)
         {
             List<City> list = new List<City>();
 
@@ -112,6 +117,7 @@ namespace SolutionZ.StandAloneWidget
                 //Get from DB
                 var query = from city in db.Cities
                             where !id.HasValue || city.ID == id.Value
+                            where string.IsNullOrEmpty(name) || (!string.IsNullOrEmpty(city.Name) && city.Name.ToLowerInvariant().Contains(name.ToLowerInvariant())) 
                             select city;
 
                 list.AddRange(query);
@@ -126,7 +132,7 @@ namespace SolutionZ.StandAloneWidget
         /// <returns></returns>
         public static List<City> GetAll()
         {
-            return GetCities(null);
+            return GetCities(null, null);
         }
 
 

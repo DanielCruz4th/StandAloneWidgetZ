@@ -113,7 +113,7 @@ namespace SolutionZ.StandAloneWidget
         /// Get Airports from DB
         /// </summary>
         /// <returns></returns>
-        public static List<Airport> GetAirports(Guid? id , string code = "")
+        public static List<Airport> GetAirports(Guid? id , string code = null)
         {
             List<Airport> list = new List<Airport>();
 
@@ -122,7 +122,9 @@ namespace SolutionZ.StandAloneWidget
                 //Get from DB
                 var query = from airport in db.Airports
                             where !id.HasValue || airport.ID == id.Value
-                            where string.IsNullOrEmpty(code) || airport.Code == code 
+                            where string.IsNullOrEmpty(code) 
+                                || (!string.IsNullOrEmpty(airport.Code)
+                                && airport.Code.ToLowerInvariant().StartsWith(code.ToLowerInvariant()))
                             select airport;
 
                 list.AddRange(query);
