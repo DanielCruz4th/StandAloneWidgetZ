@@ -23,6 +23,8 @@
         <fieldset>
             <legend>Air Vendor</legend>
     
+            @Html.HiddenFor(model => model.ID)
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.Code)
             </div>
@@ -48,7 +50,7 @@
     
     @using (Html.BeginForm("Delete", "AirVendor", FormMethod.Post))
     {
-        @Html.HiddenFor(model => Model.Code)
+        @Html.HiddenFor(model => Model.ID)
         <input type="submit" value="Delete" />
     }
 

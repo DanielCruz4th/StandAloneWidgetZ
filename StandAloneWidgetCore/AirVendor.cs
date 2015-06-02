@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace SolutionZ.StandAloneWidget
@@ -12,8 +13,20 @@ namespace SolutionZ.StandAloneWidget
     /// </summary>
     public class AirVendor
     {
+        public AirVendor()
+        {
+            this.ID = Guid.NewGuid();
+        }
+
+        /// <summary>
+        /// Air Vendor ID
+        /// </summary>
         [Key]
+        public Guid ID { get; set; }
+
         [MaxLength(2)]
+        [Index(IsUnique = true)]
+        [StringLength(2)]
         public string Code { get; set; }
 
         public string Name { get; set; }
@@ -73,14 +86,14 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static List<AirVendor> GetAirVendors(string code)
+        public static List<AirVendor> GetAirVendors(Guid? id)
         {
             List<AirVendor> list = new List<AirVendor>();
 
             using (var db = new StandAloneWidgetContext())
             {
                 var query = from airVendors in db.AirVendors
-                            where string.IsNullOrEmpty(code) || airVendors.Code == code
+                            where !id.HasValue || airVendors.ID == id
                             select airVendors;
 
                 list.AddRange(query);

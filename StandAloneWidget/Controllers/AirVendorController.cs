@@ -50,7 +50,7 @@ namespace StandAloneWidget.Controllers
         /// <param name="key"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult Update(string id)
+        public ActionResult Update(Guid? id)
         {
             return View(AirVendor.GetAirVendors(id).First());
         }
@@ -75,9 +75,9 @@ namespace StandAloneWidget.Controllers
         /// <param name="code"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Delete(string Code)
+        public ActionResult Delete(Guid id)
         {
-            AirVendor deletedAirVendor = AirVendor.GetAirVendors(Code).First();
+            AirVendor deletedAirVendor = AirVendor.GetAirVendors(id).First();
             AirVendor.Delete(deletedAirVendor);
 
             return RedirectToAction("Index", "AirVendor");
