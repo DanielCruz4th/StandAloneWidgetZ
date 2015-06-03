@@ -117,7 +117,7 @@ namespace SolutionZ.StandAloneWidget
                 //Get from DB
                 var query = from city in db.Cities
                             where !id.HasValue || city.ID == id.Value
-                            where string.IsNullOrEmpty(name) || (!string.IsNullOrEmpty(city.Name) && city.Name.ToLowerInvariant().Contains(name.ToLowerInvariant())) 
+                            where string.IsNullOrEmpty(name) || (!string.IsNullOrEmpty(city.Name) && city.Name.ToLower().Contains(name.ToLower())) 
                             select city;
 
                 list.AddRange(query);

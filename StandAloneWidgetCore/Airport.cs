@@ -124,7 +124,7 @@ namespace SolutionZ.StandAloneWidget
                             where !id.HasValue || airport.ID == id.Value
                             where string.IsNullOrEmpty(code) 
                                 || (!string.IsNullOrEmpty(airport.Code)
-                                && airport.Code.ToLowerInvariant().StartsWith(code.ToLowerInvariant()))
+                                && airport.Code.ToLower().StartsWith(code.ToLower()))
                             select airport;
 
                 list.AddRange(query);
