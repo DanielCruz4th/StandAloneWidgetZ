@@ -156,21 +156,45 @@ namespace StandAloneWidget.Controllers
         [WebMethod]
         public JsonResult Pickup(string query)
         {
-            var cities = from city in City.GetCities(null, query)
+            var cities = from city in City.GetCities(null, query).Take(30)
                           select new
                           {
-                              key = string.Format("CITY|{1}", city.ID),
+                              key = string.Format("CITY|{1}", city.Code),
                               value = city.Name
                           };
 
-            var codes = from code in Airport.GetAirports(null, query, query)
+            var codes = from code in Airport.SearchAirports(query).Take(30)
                            select new
                            {
-                               key = string.Format("AIR|{1}", code.ID),
-                               value = code.Code
+                               key = string.Format("AIR|{1}", code.Code),
+                               value = code.Name
                            };
 
-            return Json(cities.Union(codes), JsonRequestBehavior.AllowGet);
+            var pois = from poi in PointOfInterest.SearchPointsOfInterest(query).Take(30)
+                       select new { 
+                                    key = string.Format ("POI|{1}", poi.PPNID),
+                                    value = poi.PPNID 
+                                };
+
+            return Json(cities.Union(codes).Union(pois), JsonRequestBehavior.AllowGet);
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult DropOff(string query)
+        {
+
+            var codes = from code in Airport.SearchAirports(query).Take(100)
+                        select new
+                        {
+                            key = string.Format("AIR|{1}", code.Code),
+                            value = code.Name
+                        };
+
+            return Json(codes , JsonRequestBehavior.AllowGet);
         }
 
 

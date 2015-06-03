@@ -64,6 +64,11 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<CabinClass> CabinClasses { get; set; }
 
+        /// <summary>
+        /// Points of Interest Context
+        /// </summary>
+        public DbSet<PointOfInterest> PointsOfInterest { get; set; }
+
 
 
     }
