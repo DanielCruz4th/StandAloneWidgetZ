@@ -129,9 +129,9 @@ namespace StandAloneWidget.Controllers
         [WebMethod]
         public JsonResult Get(string code, string name)
         {
-            //Retrieve
-            List<Airport> airportList = Airport.GetAirports(null, code, name);
-            return Json(airportList, JsonRequestBehavior.AllowGet);
+            return Json(
+                Airport.GetAirports(null, code, name).Take(100),
+                JsonRequestBehavior.AllowGet);
         }
     }
 }
