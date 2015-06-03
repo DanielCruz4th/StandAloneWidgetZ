@@ -146,6 +146,28 @@ namespace SolutionZ.StandAloneWidget
             return list;
         }
 
+        public static List<Airport> SearchAirports(string query)
+        {
+            List<Airport> list = new List<Airport>();
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                //Get from DB
+                var results = from airport in db.Airports
+                            where (string.IsNullOrEmpty(query)
+                                || (!string.IsNullOrEmpty(airport.Code)
+                                && airport.Code.ToLower().StartsWith(query.ToLower())))
+                                || (string.IsNullOrEmpty(query)
+                            || (!string.IsNullOrEmpty(airport.Name)
+                            && airport.Name.ToLower().StartsWith(query.ToLower())))
+                            select airport;
+
+                list.AddRange(results);
+            }
+
+            return list;
+        }
+
         /// <summary>
         /// Get ALL airports
         /// </summary>

@@ -127,10 +127,21 @@ namespace StandAloneWidget.Controllers
         [HttpGet]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod]
-        public JsonResult Get(string code, string name)
+        public JsonResult Get(Guid? id, string code, string name)
         {
             return Json(
-                Airport.GetAirports(null, code, name).Take(100),
+                Airport.GetAirports(id, code, name),
+                JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Search(string query)
+        {
+            return Json(
+                Airport.SearchAirports(query).Take(100),
                 JsonRequestBehavior.AllowGet);
         }
     }
