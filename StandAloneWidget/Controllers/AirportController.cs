@@ -127,13 +127,11 @@ namespace StandAloneWidget.Controllers
         [HttpGet]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod]
-        public JsonResult Get()
+        public JsonResult Get(string code, string name)
         {
             //Retrieve
-            List<Airport> airportList = Airport.GetAll();
+            List<Airport> airportList = Airport.GetAirports(null, code, name);
             return Json(airportList, JsonRequestBehavior.AllowGet);
         }
-
-
     }
 }

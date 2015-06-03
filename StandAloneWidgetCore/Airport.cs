@@ -113,7 +113,17 @@ namespace SolutionZ.StandAloneWidget
         /// Get Airports from DB
         /// </summary>
         /// <returns></returns>
-        public static List<Airport> GetAirports(Guid? id , string code = null)
+        public static List<Airport> GetAirports(Guid? id)
+        {
+            return Airport.GetAirports(id, null, null);
+        }
+
+        public static List<Airport> GetAirports(Guid? id, string code)
+        {
+            return Airport.GetAirports(id, code, null);
+        }
+
+        public static List<Airport> GetAirports(Guid? id , string code, string name)
         {
             List<Airport> list = new List<Airport>();
 
@@ -125,6 +135,9 @@ namespace SolutionZ.StandAloneWidget
                             where string.IsNullOrEmpty(code) 
                                 || (!string.IsNullOrEmpty(airport.Code)
                                 && airport.Code.ToLower().StartsWith(code.ToLower()))
+                            where string.IsNullOrEmpty(name)
+                            || (!string.IsNullOrEmpty(airport.Name)
+                            && airport.Name.ToLower().StartsWith(name.ToLower()))
                             select airport;
 
                 list.AddRange(query);
@@ -139,7 +152,7 @@ namespace SolutionZ.StandAloneWidget
         /// <returns></returns>
         public static List<Airport> GetAll()
         {
-            return GetAirports(null, null);
+            return Airport.GetAirports(null, null, null);
         }
 
     }

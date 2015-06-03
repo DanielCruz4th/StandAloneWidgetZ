@@ -150,7 +150,7 @@ namespace StandAloneWidget.Controllers
                               value = city.Name
                           };
 
-            var codes = from code in Airport.GetAirports(null, query)
+            var codes = from code in Airport.GetAirports(null, query, query)
                            select new
                            {
                                key = string.Format("AIR|{1}", code.ID),
