@@ -137,6 +137,19 @@ namespace StandAloneWidget.Controllers
             return Json(carList, JsonRequestBehavior.AllowGet);
         }
 
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Search(string query)
+        {
+            return Json(
+                Car.SearchCars(query).Take(100),
+                JsonRequestBehavior.AllowGet);
+        }
+
+
         [AllowAnonymous]
         [HttpGet]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -159,5 +172,8 @@ namespace StandAloneWidget.Controllers
 
             return Json(cities.Union(codes), JsonRequestBehavior.AllowGet);
         }
+
+
+
     }
 }

@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201506021431314_AirVendorIDImplementation.Designer.cs">
       <DependentUpon>201506021431314_AirVendorIDImplementation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506032014550_ChainCodeImplementation.cs" />
+    <Compile Include="Migrations\201506032014550_ChainCodeImplementation.Designer.cs">
+      <DependentUpon>201506032014550_ChainCodeImplementation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506021431314_AirVendorIDImplementation.resx">
       <DependentUpon>201506021431314_AirVendorIDImplementation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506032014550_ChainCodeImplementation.resx">
+      <DependentUpon>201506032014550_ChainCodeImplementation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

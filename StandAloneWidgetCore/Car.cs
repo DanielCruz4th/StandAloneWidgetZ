@@ -142,5 +142,27 @@ namespace SolutionZ.StandAloneWidget
         {
             return GetCars(null);
         }
+
+        public static List<Car> SearchCars(string query)
+        {
+            List<Car> list = new List<Car>();
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                //Get from DB
+                var results = from car in db.Cars
+                              where (string.IsNullOrEmpty(query)
+                                  || (!string.IsNullOrEmpty(car.Code)
+                                  && car.Code.ToLower().StartsWith(query.ToLower())))
+                                  || (string.IsNullOrEmpty(query)
+                              || (!string.IsNullOrEmpty(car.Name)
+                              && car.Name.ToLower().StartsWith(query.ToLower())))
+                              select car;
+
+                list.AddRange(results);
+            }
+
+            return list;
+        }
     }
 }

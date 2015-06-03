@@ -26,6 +26,14 @@
             @Html.HiddenFor(model => model.ID)
     
             <div class="editor-label">
+                @Html.LabelFor(model => model.Code)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Code)
+                @Html.ValidationMessageFor(model => model.Code)
+            </div>
+
+            <div class="editor-label">
                 @Html.LabelFor(model => model.Name)
             </div>
             <div class="editor-field">

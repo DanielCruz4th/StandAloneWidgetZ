@@ -103,6 +103,29 @@ namespace SolutionZ.StandAloneWidget
             return list;
         }
 
+
+        public static List<CabinClass> SearchCabinClass(string query)
+        {
+            List<CabinClass> list = new List<CabinClass>();
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                //Get from DB
+                var results = from cabinClass in db.CabinClasses
+                              where (string.IsNullOrEmpty(query)
+                                  || (!string.IsNullOrEmpty(cabinClass.Code)
+                                  && cabinClass.Code.ToLower().StartsWith(query.ToLower())))
+                                  || (string.IsNullOrEmpty(query)
+                              || (!string.IsNullOrEmpty(cabinClass.Name)
+                              && cabinClass.Name.ToLower().StartsWith(query.ToLower())))
+                              select cabinClass;
+
+                list.AddRange(results);
+            }
+
+            return list;
+        }
+
         /// <summary>
         /// Get all Cabin Classes
         /// </summary>
