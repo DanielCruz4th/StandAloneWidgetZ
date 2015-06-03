@@ -62,6 +62,46 @@ namespace StandAloneWidgetTesting
             }
         }
 
+        [TestMethod]
+        public void JsonLoaderCarCompanies()
+        {
+            //Load file
+            var json = System.IO.File.ReadAllText(@"c:\jsonfiles\carCompanies.json");
+            var objects = JArray.Parse(json);
+
+            foreach (var item in objects.Children())
+            {
+                var itemProperties = item.Children<JProperty>();
+
+                var myElementName = itemProperties.FirstOrDefault(x => x.Name == "name");
+                var myElementNameValue = myElementName.Value;
+
+                var myElementCode = itemProperties.FirstOrDefault(x => x.Name == "code");
+                var myElementCodeValue = myElementCode.Value;
+
+                var myElementTitle = itemProperties.FirstOrDefault(x => x.Name == "title");
+                var myElementTitleValue = myElementTitle.Value;
+
+                var myElementPhone = itemProperties.FirstOrDefault(x => x.Name == "phone");
+                var myElementPhoneValue = myElementPhone.Value;
+
+                var myElementAlternate = itemProperties.FirstOrDefault(x => x.Name == "alternate");
+                var myElementAlternateValue = myElementAlternate.Value;
+
+                Car newCar = new Car();
+                newCar.Name = myElementNameValue.ToString();
+                newCar.Code = myElementCodeValue.ToString();
+                newCar.TitleTag = myElementTitleValue.ToString();
+                newCar.PrimaryPhoneNumber = myElementPhoneValue.ToString();
+                newCar.SecondaryPhoneNumber = myElementAlternateValue.ToString();
+                newCar.CreatedBy = "ADMIN";
+                newCar.DateCreated = DateTime.Now;
+
+                Car.Insert(newCar);
+
+            }
+        }
+
 
     }
 }

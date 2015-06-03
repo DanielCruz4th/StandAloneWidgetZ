@@ -99,5 +99,23 @@ namespace StandAloneWidget.Controllers
             return Json(valuesList, JsonRequestBehavior.AllowGet);
         }
 
+
+        /// <summary>
+        /// Json WebService to get all Airvendors
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Search(string query)
+        {
+            //Retrieve
+            List<AirVendor> valuesList = AirVendor.SearchAirVendors(query);
+            return Json(valuesList, JsonRequestBehavior.AllowGet);
+        }
+
+
+
     }
 }

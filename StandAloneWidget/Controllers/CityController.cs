@@ -139,6 +139,18 @@ namespace StandAloneWidget.Controllers
         }
 
 
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Search(string query)
+        {
+            return Json(
+                City.SearchCities(query).Take(100),
+                JsonRequestBehavior.AllowGet);
+        }
+
+
 
     }
 }

@@ -111,5 +111,32 @@ namespace SolutionZ.StandAloneWidget
             return GetAirVendors(null);
         }
 
+        /// <summary>
+        /// Search
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public static List<AirVendor> SearchAirVendors(string query)
+        {
+            List<AirVendor> list = new List<AirVendor>();
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                //Get from DB
+                var results = from airVendor in db.AirVendors
+                              where (string.IsNullOrEmpty(query)
+                                  || (!string.IsNullOrEmpty(airVendor.Code)
+                                  && airVendor.Code.ToLower().StartsWith(query.ToLower())))
+                                  || (string.IsNullOrEmpty(query)
+                              || (!string.IsNullOrEmpty(airVendor.Name)
+                              && airVendor.Name.ToLower().StartsWith(query.ToLower())))
+                              select airVendor;
+
+                list.AddRange(results);
+            }
+
+            return list;
+        }
+
     }
 }

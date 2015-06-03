@@ -137,5 +137,17 @@ namespace StandAloneWidget.Controllers
             return Json(chainList, JsonRequestBehavior.AllowGet);
         }
 
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult Search(string query)
+        {
+            return Json(
+                Chain.SearchChains(query).Take(100),
+                JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

@@ -14,12 +14,14 @@ namespace SolutionZ.StandAloneWidget
             this.ID = Guid.NewGuid();
         }
 
-
         /// <summary>
         /// ID - Guid
         /// </summary>
         [Key]
         public Guid ID { get; set; }
+
+        [MaxLength(5)]
+        public string Code { get; set; }
 
         public string Name { get; set; }
 
@@ -44,8 +46,6 @@ namespace SolutionZ.StandAloneWidget
         /// Last Updated By
         /// </summary>
         public string LastUpdatedBy { get; set; }
-
-
 
         /// <summary>
         /// Creates Chain in DB
@@ -127,6 +127,26 @@ namespace SolutionZ.StandAloneWidget
         {
             return GetChains(null);
         }
+
+        public static List<Chain> SearchChains(string query)
+        {
+            List<Chain> list = new List<Chain>();
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                //Get from DB
+                var results = from chain in db.Chains
+                              where (string.IsNullOrEmpty(query)
+                                  || (!string.IsNullOrEmpty(chain.Name)
+                                  && chain.Name.ToLower().StartsWith(query.ToLower())))
+                              select chain;
+
+                list.AddRange(results);
+            }
+
+            return list;
+        }
+
 
 
 

@@ -136,6 +136,25 @@ namespace SolutionZ.StandAloneWidget
         }
 
 
+        public static List<City> SearchCities(string query)
+        {
+            List<City> list = new List<City>();
+
+            using (var db = new StandAloneWidgetContext())
+            {
+                //Get from DB
+                var results = from city in db.Cities
+                              where string.IsNullOrEmpty(query)
+                                  || (!string.IsNullOrEmpty(city.Name)
+                                  && city.Name.ToLower().StartsWith(query.ToLower()))
+                              select city;
+
+                list.AddRange(results);
+            }
+
+            return list;
+        }
+
 
     }
 }
