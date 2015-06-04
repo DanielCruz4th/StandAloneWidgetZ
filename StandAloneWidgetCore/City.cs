@@ -20,7 +20,7 @@ namespace SolutionZ.StandAloneWidget
         [Key]
         public Guid ID { get; set; }
 
-        public string Code { get; set; }
+        public int Code { get; set; }
 
         public string Name { get; set; }
 

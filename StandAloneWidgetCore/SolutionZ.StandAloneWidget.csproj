@@ -109,6 +109,18 @@
     <Compile Include="Migrations\201506032240581_POI.Designer.cs">
       <DependentUpon>201506032240581_POI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506032258493_POIFix.cs" />
+    <Compile Include="Migrations\201506032258493_POIFix.Designer.cs">
+      <DependentUpon>201506032258493_POIFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506042105050_chainUpdate.cs" />
+    <Compile Include="Migrations\201506042105050_chainUpdate.Designer.cs">
+      <DependentUpon>201506042105050_chainUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506042114217_CityCodeUpdate.cs" />
+    <Compile Include="Migrations\201506042114217_CityCodeUpdate.Designer.cs">
+      <DependentUpon>201506042114217_CityCodeUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PointOfInterest.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
@@ -137,6 +149,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506032240581_POI.resx">
       <DependentUpon>201506032240581_POI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506032258493_POIFix.resx">
+      <DependentUpon>201506032258493_POIFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506042105050_chainUpdate.resx">
+      <DependentUpon>201506042105050_chainUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506042114217_CityCodeUpdate.resx">
+      <DependentUpon>201506042114217_CityCodeUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

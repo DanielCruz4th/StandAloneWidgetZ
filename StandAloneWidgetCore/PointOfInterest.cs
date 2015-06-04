@@ -28,6 +28,8 @@ namespace SolutionZ.StandAloneWidget
 
         public string PPNTID { get; set; }
 
+        public string PPNCityID { get; set; }
+
         public string Name { get; set; }
 
         public string Address { get; set; }

@@ -20,8 +20,7 @@ namespace SolutionZ.StandAloneWidget
         [Key]
         public Guid ID { get; set; }
 
-        [MaxLength(5)]
-        public string Code { get; set; }
+        public int Code { get; set; }
 
         public string Name { get; set; }
 
@@ -138,7 +137,7 @@ namespace SolutionZ.StandAloneWidget
                 var results = from chain in db.Chains
                               where (string.IsNullOrEmpty(query)
                                   || (!string.IsNullOrEmpty(chain.Name)
-                                  && chain.Name.ToLower().StartsWith(query.ToLower())))
+                                  && chain.Name.ToLower().Contains(query.ToLower())))
                               select chain;
 
                 list.AddRange(results);

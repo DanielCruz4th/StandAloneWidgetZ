@@ -159,20 +159,20 @@ namespace StandAloneWidget.Controllers
             var cities = from city in City.GetCities(null, query).Take(30)
                           select new
                           {
-                              key = string.Format("CITY|{1}", city.Code),
+                              key = string.Format("CITY|{0}", city.Code),
                               value = city.Name
                           };
 
             var codes = from code in Airport.SearchAirports(query).Take(30)
                            select new
                            {
-                               key = string.Format("AIR|{1}", code.Code),
+                               key = string.Format("AIR|{0}", code.Code),
                                value = code.Name
                            };
 
             var pois = from poi in PointOfInterest.SearchPointsOfInterest(query).Take(30)
                        select new { 
-                                    key = string.Format ("POI|{1}", poi.PPNID),
+                                    key = string.Format ("POI|{0}", poi.PPNID),
                                     value = poi.PPNID 
                                 };
 
@@ -190,7 +190,7 @@ namespace StandAloneWidget.Controllers
             var codes = from code in Airport.SearchAirports(query).Take(100)
                         select new
                         {
-                            key = string.Format("AIR|{1}", code.Code),
+                            key = string.Format("AIR|{0}", code.Code),
                             value = code.Name
                         };
 
