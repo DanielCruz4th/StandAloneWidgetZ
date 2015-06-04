@@ -156,6 +156,15 @@ namespace StandAloneWidget.Controllers
         [WebMethod]
         public JsonResult Pickup(string query)
         {
+
+            var codes = from code in Airport.SearchAirports(query).Take(30)
+                        select new
+                        {
+                            key = string.Format("AIR|{0}", code.Code),
+                            value = code.Name
+                        };
+
+
             var cities = from city in City.GetCities(null, query).Take(30)
                           select new
                           {
@@ -163,12 +172,6 @@ namespace StandAloneWidget.Controllers
                               value = city.Name
                           };
 
-            var codes = from code in Airport.SearchAirports(query).Take(30)
-                           select new
-                           {
-                               key = string.Format("AIR|{0}", code.Code),
-                               value = code.Name
-                           };
 
             var pois = from poi in PointOfInterest.SearchPointsOfInterest(query).Take(30)
                        select new { 
