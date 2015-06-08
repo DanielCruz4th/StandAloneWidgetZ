@@ -157,29 +157,32 @@ namespace StandAloneWidget.Controllers
         public JsonResult Pickup(string query)
         {
 
-            var codes = from code in Airport.SearchAirports(query).Take(30)
+            var codes = from item in Airport.SearchAirports(query).Take(30)
                         select new
                         {
-                            key = string.Format("AIR|{0}", code.Code),
-                            value = code.Name
+                            type = "AIR",
+                            key = item.Code,
+                            value = item.Name
                         };
 
 
-            var cities = from city in City.GetCities(null, query).Take(30)
-                          select new
-                          {
-                              key = string.Format("CITY|{0}", city.Code),
-                              value = city.Name
-                          };
+            var cities = from item in City.GetCities(null, query).Take(30)
+                         select new
+                         {
+                             type = "CITY",
+                             key = item.Code.ToString(),
+                             value = item.Name
+                         };
 
 
-            var pois = from poi in PointOfInterest.SearchPointsOfInterest(query).Take(30)
+            var pois = from item in PointOfInterest.SearchPointsOfInterest(query).Take(30)
                        select new { 
-                                    key = string.Format ("POI|{0}", poi.PPNID),
-                                    value = poi.PPNID 
+                                    type = "POI",
+                                    key = item.PPNID,
+                                    value = item.Name 
                                 };
-
-            return Json(cities.Union(codes).Union(pois), JsonRequestBehavior.AllowGet);
+            
+            return Json(codes.Union(cities).Union(pois), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -193,7 +196,8 @@ namespace StandAloneWidget.Controllers
             var codes = from code in Airport.SearchAirports(query).Take(100)
                         select new
                         {
-                            key = string.Format("AIR|{0}", code.Code),
+                            type = "AIR",
+                            key =  code.Code,
                             value = code.Name
                         };
 
