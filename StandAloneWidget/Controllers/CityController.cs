@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SolutionZ.StandAloneWidget;
+using StandAloneWidget.Base;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -146,7 +147,7 @@ namespace StandAloneWidget.Controllers
         public JsonResult Search(string query)
         {
             return Json(
-                City.SearchCities(query).Take(100),
+                City.SearchCities(query , null, Functions.DefaultPageSize() ), 
                 JsonRequestBehavior.AllowGet);
         }
 

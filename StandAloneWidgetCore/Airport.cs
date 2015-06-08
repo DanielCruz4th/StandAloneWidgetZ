@@ -146,9 +146,10 @@ namespace SolutionZ.StandAloneWidget
             return list;
         }
 
-        public static List<Airport> SearchAirports(string query)
+        public static List<Airport> SearchAirports(string query, int? pageIndex, int pageSize)
         {
             List<Airport> list = new List<Airport>();
+            int _page = pageIndex ?? 0;
 
             using (var db = new StandAloneWidgetContext())
             {
@@ -162,7 +163,7 @@ namespace SolutionZ.StandAloneWidget
                             && airport.Name.ToLower().StartsWith(query.ToLower())))
                             select airport;
 
-                list.AddRange(results);
+                list.AddRange(results.OrderBy(x=>x.Name).Skip(_page * pageSize).Take(pageSize));
             }
 
             return list;

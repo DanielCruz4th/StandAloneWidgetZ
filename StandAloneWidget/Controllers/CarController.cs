@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SolutionZ.StandAloneWidget;
+using StandAloneWidget.Base;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -157,7 +158,7 @@ namespace StandAloneWidget.Controllers
         public JsonResult Pickup(string query)
         {
 
-            var codes = from item in Airport.SearchAirports(query).Take(30)
+            var codes = from item in Airport.SearchAirports(query , null, Functions.DefaultPageSize())
                         select new
                         {
                             type = "AIR",
@@ -193,7 +194,7 @@ namespace StandAloneWidget.Controllers
         public JsonResult DropOff(string query)
         {
 
-            var codes = from code in Airport.SearchAirports(query).Take(100)
+            var codes = from code in Airport.SearchAirports(query, null, Functions.DefaultPageSize())
                         select new
                         {
                             type = "AIR",

@@ -127,9 +127,10 @@ namespace SolutionZ.StandAloneWidget
             return GetChains(null);
         }
 
-        public static List<Chain> SearchChains(string query)
+        public static List<Chain> SearchChains(string query, int? pageIndex, int pageSize)
         {
             List<Chain> list = new List<Chain>();
+            int _page = pageIndex ?? 0;
 
             using (var db = new StandAloneWidgetContext())
             {
@@ -140,7 +141,7 @@ namespace SolutionZ.StandAloneWidget
                                   && chain.Name.ToLower().Contains(query.ToLower())))
                               select chain;
 
-                list.AddRange(results);
+                list.AddRange(results.OrderBy(x=>x.Name).Skip(_page * pageSize).Take(pageSize));
             }
 
             return list;

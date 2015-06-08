@@ -140,9 +140,10 @@ namespace SolutionZ.StandAloneWidget
         }
 
 
-        public static List<City> SearchCities(string query)
+        public static List<City> SearchCities(string query , int? pageIndex, int pageSize)
         {
             List<City> list = new List<City>();
+            int _page = pageIndex ?? 0;
 
             using (var db = new StandAloneWidgetContext())
             {
@@ -153,7 +154,7 @@ namespace SolutionZ.StandAloneWidget
                                   && city.Name.ToLower().StartsWith(query.ToLower()))
                               select city;
 
-                list.AddRange(results);
+                list.AddRange(results.OrderBy(x => x.Name).Skip(_page * pageSize).Take(pageSize));
             }
 
             return list;

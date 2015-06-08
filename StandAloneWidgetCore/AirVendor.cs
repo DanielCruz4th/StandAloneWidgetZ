@@ -116,9 +116,10 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public static List<AirVendor> SearchAirVendors(string query)
+        public static List<AirVendor> SearchAirVendors(string query, int? pageIndex, int pageSize)
         {
             List<AirVendor> list = new List<AirVendor>();
+            int _page = pageIndex ?? 0;
 
             using (var db = new StandAloneWidgetContext())
             {
@@ -132,7 +133,7 @@ namespace SolutionZ.StandAloneWidget
                               && airVendor.Name.ToLower().StartsWith(query.ToLower())))
                               select airVendor;
 
-                list.AddRange(results);
+                list.AddRange(results.OrderBy(x=>x.Name).Skip(_page * pageSize).Take(pageSize));
             }
 
             return list;

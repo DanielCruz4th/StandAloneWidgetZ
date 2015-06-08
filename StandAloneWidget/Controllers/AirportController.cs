@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SolutionZ.StandAloneWidget;
+using StandAloneWidget.Base;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -141,7 +142,7 @@ namespace StandAloneWidget.Controllers
         public JsonResult Search(string query)
         {
             return Json(
-                Airport.SearchAirports(query).Take(100),
+                Airport.SearchAirports(query , null, Functions.DefaultPageSize()),
                 JsonRequestBehavior.AllowGet);
         }
     }

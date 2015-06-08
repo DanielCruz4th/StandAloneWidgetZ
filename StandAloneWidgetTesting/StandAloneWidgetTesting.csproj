@@ -102,6 +102,7 @@
     <Compile Include="JsonLoaderTest.cs" />
     <Compile Include="CabinClassTest.cs" />
     <Compile Include="AirVendorTest.cs" />
+    <Compile Include="AppSettings.cs" />
     <Compile Include="UploadedFileTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +113,10 @@
     <ProjectReference Include="..\StandAloneWidgetCore\SolutionZ.StandAloneWidget.csproj">
       <Project>{04e2c983-e658-432c-a187-8250e853ca4d}</Project>
       <Name>SolutionZ.StandAloneWidget</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StandAloneWidget\StandAloneWidget.csproj">
+      <Project>{854aa955-0205-453f-9ce5-2580e99f9066}</Project>
+      <Name>StandAloneWidget</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SolutionZ.StandAloneWidget;
+using StandAloneWidget.Base;
 using StandAloneWidget.Models;
 using System;
 using System.Collections.Generic;
@@ -111,7 +112,7 @@ namespace StandAloneWidget.Controllers
         public JsonResult Search(string query)
         {
             //Retrieve
-            List<AirVendor> valuesList = AirVendor.SearchAirVendors(query);
+            List<AirVendor> valuesList = AirVendor.SearchAirVendors(query, null, Functions.DefaultPageSize());
             return Json(valuesList, JsonRequestBehavior.AllowGet);
         }
 
