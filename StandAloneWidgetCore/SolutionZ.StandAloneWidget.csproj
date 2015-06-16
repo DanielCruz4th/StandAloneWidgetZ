@@ -121,6 +121,10 @@
     <Compile Include="Migrations\201506042114217_CityCodeUpdate.Designer.cs">
       <DependentUpon>201506042114217_CityCodeUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506161508541_AirportUpdate.cs" />
+    <Compile Include="Migrations\201506161508541_AirportUpdate.Designer.cs">
+      <DependentUpon>201506161508541_AirportUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PointOfInterest.cs" />
     <Compile Include="StandAloneWidgetContext.cs" />
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506042114217_CityCodeUpdate.resx">
       <DependentUpon>201506042114217_CityCodeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506161508541_AirportUpdate.resx">
+      <DependentUpon>201506161508541_AirportUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

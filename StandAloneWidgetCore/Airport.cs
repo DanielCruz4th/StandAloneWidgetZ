@@ -32,7 +32,13 @@ namespace SolutionZ.StandAloneWidget
 
         public string Longitude { get; set; }
 
-        public string Country { get; set; }
+        [MaxLength(2)]
+        public string StateCode { get; set; }
+
+        [MaxLength(2)]
+        public string CountryCode { get; set; }
+
+        public int RankScorePPN { get; set; }
 
         /// <summary>
         /// Date Created - Audit

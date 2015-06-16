@@ -40,6 +40,30 @@
                 @Html.EditorFor(model => model.Code)
                 @Html.ValidationMessageFor(model => model.Code)
             </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.StateCode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.StateCode)
+                @Html.ValidationMessageFor(model => model.StateCode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CountryCode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CountryCode)
+                @Html.ValidationMessageFor(model => model.CountryCode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RankScorePPN)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RankScorePPN)
+                @Html.ValidationMessageFor(model => model.RankScorePPN)
+            </div>
     
             <div class="editor-label">
                 @Html.LabelFor(model => model.Latitude)
@@ -57,13 +81,7 @@
                 @Html.ValidationMessageFor(model => model.Longitude)
             </div>
     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Country)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Country)
-                @Html.ValidationMessageFor(model => model.Country)
-            </div>
+
     
             @*<div class="editor-label">
                 @Html.LabelFor(model => model.DateCreated)

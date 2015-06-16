@@ -76,7 +76,6 @@ namespace StandAloneWidget.Controllers
 
             return RedirectToAction("Index", "Car");
 
-
         }
 
         /// <summary>
@@ -175,15 +174,8 @@ namespace StandAloneWidget.Controllers
                              value = item.Name
                          };
 
-
-            var pois = from item in PointOfInterest.SearchPointsOfInterest(query).Take(30)
-                       select new { 
-                                    type = "POI",
-                                    key = item.PPNID,
-                                    value = item.Name 
-                                };
             
-            return Json(codes.Union(cities).Union(pois), JsonRequestBehavior.AllowGet);
+            return Json(codes.Union(cities), JsonRequestBehavior.AllowGet);
         }
 
 
