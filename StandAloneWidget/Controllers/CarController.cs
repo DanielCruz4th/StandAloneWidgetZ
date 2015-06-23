@@ -162,7 +162,7 @@ namespace StandAloneWidget.Controllers
                         {
                             type = "AIR",
                             key = item.Code,
-                            value = item.Name
+                            value = String.Format("{0}, {1}", item.Name, item.StateCode)
                         };
 
 

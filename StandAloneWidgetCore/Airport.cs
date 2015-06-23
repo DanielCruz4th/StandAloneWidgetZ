@@ -38,6 +38,7 @@ namespace SolutionZ.StandAloneWidget
         [MaxLength(2)]
         public string CountryCode { get; set; }
 
+        [Required]
         public int RankScorePPN { get; set; }
 
         /// <summary>
@@ -61,7 +62,6 @@ namespace SolutionZ.StandAloneWidget
         /// Last Updated By
         /// </summary>
         public string LastUpdatedBy { get; set; }
-
 
 
         /// <summary>
