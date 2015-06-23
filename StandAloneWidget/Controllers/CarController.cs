@@ -162,7 +162,7 @@ namespace StandAloneWidget.Controllers
                         {
                             type = "AIR",
                             key = item.Code,
-                            value = String.Format("{0}, {1}", item.Name, item.StateCode)
+                            value = item.Name
                         };
 
 
@@ -171,7 +171,7 @@ namespace StandAloneWidget.Controllers
                          {
                              type = "CITY",
                              key = item.Code.ToString(),
-                             value = item.Name
+                             value = String.Format("{0}, {1}", item.Name, item.State)
                          };
 
             
