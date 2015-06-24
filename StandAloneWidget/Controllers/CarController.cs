@@ -157,7 +157,28 @@ namespace StandAloneWidget.Controllers
         public JsonResult Pickup(string query)
         {
 
-            var codes = from item in Airport.SearchAirports(query , null, Functions.DefaultPageSize())
+            return GetPickUpDropOff(query);
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult DropOff(string query)
+        {
+
+            return GetPickUpDropOff(query);
+        }
+
+        /// <summary>
+        /// Gets PickUp or DropOff locations for Car
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        private JsonResult GetPickUpDropOff(string query)
+        {
+            var codes = from item in Airport.SearchAirports(query, null, Functions.DefaultPageSize()).Where(x=>x.CarRentalAvailable == true)
                         select new
                         {
                             type = "AIR",
@@ -174,27 +195,8 @@ namespace StandAloneWidget.Controllers
                              value = String.Format("{0}, {1}", item.Name, item.State)
                          };
 
-            
+
             return Json(codes.Union(cities), JsonRequestBehavior.AllowGet);
-        }
-
-
-        [AllowAnonymous]
-        [HttpGet]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        [WebMethod]
-        public JsonResult DropOff(string query)
-        {
-
-            var codes = from code in Airport.SearchAirports(query, null, Functions.DefaultPageSize())
-                        select new
-                        {
-                            type = "AIR",
-                            key =  code.Code,
-                            value = code.Name
-                        };
-
-            return Json(codes , JsonRequestBehavior.AllowGet);
         }
 
 

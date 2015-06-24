@@ -41,6 +41,8 @@ namespace SolutionZ.StandAloneWidget
         [Required]
         public int RankScorePPN { get; set; }
 
+        public bool CarRentalAvailable { get; set; }
+
         /// <summary>
         /// Date Created - Audit
         /// Must not be null
