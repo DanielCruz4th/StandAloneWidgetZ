@@ -145,5 +145,32 @@ namespace StandAloneWidget.Controllers
                 Airport.SearchAirports(query , null, Functions.DefaultPageSize()),
                 JsonRequestBehavior.AllowGet);
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod]
+        public JsonResult OriginDestination(string query)
+        {
+            var codes = from item in Airport.SearchAirports(query, null, Functions.DefaultPageSize())
+                        select new
+                        {
+                            type = "AIR",
+                            key = item.Code,
+                            value = item.Name
+                        };
+
+
+            var cities = from item in City.GetCities(null, query, false).Take(30)
+                         select new
+                         {
+                             type = "CITY",
+                             key = item.Code.ToString(),
+                             value = String.Format("{0}, {1}", item.Name, item.State)
+                         };
+
+
+            return Json(codes.Union(cities), JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -187,7 +187,7 @@ namespace StandAloneWidget.Controllers
                         };
 
 
-            var cities = from item in City.GetCities(null, query).Take(30)
+            var cities = from item in City.GetCities(null, query, false).Take(30)
                          select new
                          {
                              type = "CITY",

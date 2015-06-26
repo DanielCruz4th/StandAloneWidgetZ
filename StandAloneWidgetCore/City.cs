@@ -50,7 +50,7 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public string LastUpdatedBy { get; set; }
 
-
+        public bool AirCity { get; set; }
 
         /// <summary>
         /// Creates City in DB
@@ -112,7 +112,7 @@ namespace SolutionZ.StandAloneWidget
         /// Get Cities from DB
         /// </summary>
         /// <returns></returns>
-        public static List<City> GetCities(Guid? id, string name)
+        public static List<City> GetCities(Guid? id, string name, bool? airCity)
         {
             List<City> list = new List<City>();
 
@@ -122,6 +122,7 @@ namespace SolutionZ.StandAloneWidget
                 var query = from city in db.Cities
                             where !id.HasValue || city.ID == id.Value
                             where string.IsNullOrEmpty(name) || (!string.IsNullOrEmpty(city.Name) && city.Name.ToLower().Contains(name.ToLower())) 
+                            where !airCity.HasValue || city.AirCity == airCity
                             select city;
 
                 list.AddRange(query);
