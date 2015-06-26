@@ -50,6 +50,9 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public string LastUpdatedBy { get; set; }
 
+        /// <summary>
+        /// Air City Code -- Used by Airlines
+        /// </summary>
         public bool AirCity { get; set; }
 
         /// <summary>
@@ -105,7 +108,7 @@ namespace SolutionZ.StandAloneWidget
 
         public static List<City> GetCities(Guid id)
         {
-            return City.GetCities(id, null);
+            return City.GetCities(id, null , null);
         }
 
         /// <summary>
@@ -137,7 +140,7 @@ namespace SolutionZ.StandAloneWidget
         /// <returns></returns>
         public static List<City> GetAll()
         {
-            return GetCities(null, null);
+            return GetCities(null, null, null);
         }
 
 

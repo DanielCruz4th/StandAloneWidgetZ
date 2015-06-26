@@ -27,7 +27,7 @@ namespace StandAloneWidgetTesting
         {
             //Arrange
             CityInsert();
-            var city = City.GetCities(null, null).First();
+            var city = City.GetCities(null, null, null).First();
             Guid temp = city.ID;
 
             //Act
@@ -49,7 +49,7 @@ namespace StandAloneWidgetTesting
             CityInsert();
 
             //Arrange
-            var cities = City.GetCities(null, null);
+            var cities = City.GetCities(null, null, null);
 
             //Assert
             Assert.IsTrue(cities.Count > 0);
@@ -61,7 +61,7 @@ namespace StandAloneWidgetTesting
         {
             //Arrange
             CityInsert();
-            var cityList = City.GetCities(null, null);
+            var cityList = City.GetCities(null, null, null);
             Guid temp = cityList.First().ID;
 
             //Act
