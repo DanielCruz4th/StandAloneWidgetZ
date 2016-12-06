@@ -39,6 +39,8 @@ namespace SolutionZ.StandAloneWidget
         /// </summary>
         public DbSet<City> Cities { get; set; }
 
+        public DbSet<CitiesCvs> CitiesCvs { get; set; }
+
         /// <summary>
         /// Chains DBContext
         /// </summary>

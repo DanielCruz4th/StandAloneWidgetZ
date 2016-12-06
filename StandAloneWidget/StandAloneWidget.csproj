@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +79,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -178,6 +180,8 @@
     <Compile Include="Models\Design\StyleModel.cs" />
     <Compile Include="Models\HotelsModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\Search\AirportDistanceModel.cs" />
+    <Compile Include="Models\Search\DestinationModel.cs" />
     <Compile Include="Models\Security\LogInModel.cs" />
     <Compile Include="Models\Security\RegisterModel.cs" />
     <Compile Include="Models\UploadedFileModel.cs" />
